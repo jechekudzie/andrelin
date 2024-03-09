@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             OrganisationTypesSeeder::class,
             OrganisationTypeRelationshipSeeder::class,
             OrganisationsSeeder::class,
+            CategoriesTableSeeder::class,
+            ShopTableSeeder::class,
             UsersTableSeeder::class,
             /*OrganisationAdminSeeder::class,*/
         ]);

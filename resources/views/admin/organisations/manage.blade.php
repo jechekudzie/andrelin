@@ -20,14 +20,10 @@
                     <h5 class="text-700 fw-semi-bold">The hierarchy for ANDRELIN ENTERPRISES.</h5>
                 </div>
                 <div class="col-auto">
-                    <a class="btn btn-primary px-5" href="{{route('admin.organisation-types.index')}}">
-                        <i class="fa-solid fa-plus me-2"></i>
-                        Refresh
-                    </a>
 
-                    <a class="btn btn-primary px-5" href="#">
+                    <a class="btn btn-primary px-5" href="{{route('admin.organisations.index')}}">
                         <i class="fa-solid fa-plus me-2"></i>
-                        Add new project
+                        Add new organisation
                     </a>
                 </div>
 
@@ -44,8 +40,7 @@
                                 <div class="card-header p-4 border-bottom border-300 bg-soft">
                                     <div class="row g-3 justify-content-between align-items-center">
                                         <div class="col-12 col-md">
-                                            <h4 class="text-900 mb-0 card-title" data-anchor="data-anchor">Andrelin
-                                                Enterprises </h4>
+                                            <h4 class="text-900 mb-0 card-title" data-anchor="data-anchor"> Company Hierarchy</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +74,7 @@
                                                             <td><a href="{{route('admin.organisation-users.index',$organisation->slug)}}">Manage ({{$organisation->users->count()}})</a></td>
                                                             <td class="align-middle ps-3">
                                                                 <!-- Edit Button -->
-                                                                <a href="javascript:void(0);" class="edit-button btn btn-primary me-1 mb-1"
+                                                                <a href="javascript:void(0);" class="edit-button btn btn-outline-primary btn-sm me-1 mb-1"
                                                                    data-name="{{ $organisation->name }}"
                                                                    data-slug="{{ $organisation->slug }}" title="Edit">
                                                                     <i class="fa fa-pencil"></i>
@@ -91,7 +86,7 @@
                                                                     style="display: inline-block;">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger me-1 mb-1" title="Delete">
+                                                                    <button type="submit" class="btn btn-outline-danger btn-sm me-1 mb-1" title="Delete">
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
                                                                 </form>

@@ -65,6 +65,29 @@ Route::delete('/admin/permissions/{permission}', [\App\Http\Controllers\Permissi
 Route::get('/admin/permissions/{organisation}/{role}/assignPermission', [\App\Http\Controllers\PermissionController::class, 'assignPermission'])->name('admin.permissions.assign');
 Route::post('/admin/permissions/{organisation}/{role}/assignPermissionToRole', [\App\Http\Controllers\PermissionController::class, 'assignPermissionToRole'])->name('admin.permissions.assign-permission-to-role');
 
+//shop routes
+Route::get('admin/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop.index');
+Route::post('admin/shop/store', [\App\Http\Controllers\ShopController::class, 'store'])->name('shop.store');
+Route::get('admin/shop/{shop}/edit', [\App\Http\Controllers\ShopController::class, 'edit'])->name('shop.edit');
+Route::patch('admin/shop/{shop}/update', [\App\Http\Controllers\ShopController::class, 'update'])->name('shop.update');
+Route::delete('admin/shop/{shop}', [\App\Http\Controllers\ShopController::class, 'destroy'])->name('shop.destroy');
+
+//product category routes
+Route::get('admin/product-categories', [\App\Http\Controllers\CategoryController::class, 'index'])->name('product-categories.index');
+Route::post('admin/product-categories/store', [\App\Http\Controllers\CategoryController::class, 'store'])->name('product-categories.store');
+Route::get('admin/product-categories/{category}/edit', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('product-categories.edit');
+Route::patch('admin/product-categories/{category}/update', [\App\Http\Controllers\CategoryController::class, 'update'])->name('product-categories.update');
+Route::delete('admin/product-categories/{category}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('product-categories.destroy');
+
+
+//product routes
+Route::get('admin/products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
+Route::get('admin/products/create', [\App\Http\Controllers\ProductController::class, 'create'])->name('products.create');
+Route::post('admin/products/store', [\App\Http\Controllers\ProductController::class, 'store'])->name('products.store');
+Route::get('admin/products/{product}/edit', [\App\Http\Controllers\ProductController::class, 'edit'])->name('products.edit');
+Route::patch('admin/products/{product}/update', [\App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
+Route::delete('admin/products/{product}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('products.destroy');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

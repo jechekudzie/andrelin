@@ -16,27 +16,46 @@
         <div class="row g-4">
             <div class="col-12 col-xxl-12">
                 <div class="mb-8">
-                    <h2 class="mb-2">{{$organisation->name}}</h2>
-                    <h5 class="text-700 fw-semi-bold">Roles and Permissions</h5>
+                    <h2 class="mb-2">Andrelin Enterprises - Online Shops</h2>
+
                 </div>
                 <div class="col-auto">
-                    <a class="btn btn-primary px-5" href="{{route('admin.organisations.manage')}}">
-                        <i class="fa-solid fa-caret-left me-2"></i>
-                        Back to organisations
-                    </a>
-
-                    <a class="btn btn-primary px-5" href="{{route('admin.organisation-roles.index',$organisation->slug)}}">
+                    <a class="btn btn-primary px-5" href="{{route('shop.index')}}">
                         <i class="fa-solid fa-plus me-2"></i>
-                        Add new role
+                        Refresh
                     </a>
                 </div>
 
                 <br/>
-                <div id="messageContainer"></div>
-                <div id="errorContainer"></div>
+
                 <!-- Start custom content -->
                 <div class="row g-4">
+                    <div class="col-8 col-xl-8">
+                        @if(session()->has('errors'))
+                            @if($errors->any())
+                                @foreach($errors->all() as $error)
+                                    <!-- Success Alert -->
+                                    <div class="alert alert-outline-danger d-flex align-items-center" role="alert">
+                                        <span class="fas fa-times-circle text-danger fs-3 me-3"></span>
+                                        <p class="mb-0 flex-1"> {{ $error }}!</p>
 
+                                        <button class="btn-close" type="button" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                    </div>
+                                @endforeach
+
+                            @endif
+                        @endif
+                        @if(session('success'))
+                            <div class="alert alert-outline-success d-flex align-items-center" role="alert">
+                                <span class="fas fa-check-circle text-success fs-3 me-3"></span>
+                                <p class="mb-0 flex-1"> {{ session('success') }}</p>
+
+                                <button class="btn-close" type="button" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                            </div>
+                        @endif
+                    </div>
                     <div class="col-9 col-xl-9">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
@@ -44,7 +63,8 @@
                                 <div class="card-header p-4 border-bottom border-300 bg-soft">
                                     <div class="row g-3 justify-content-between align-items-center">
                                         <div class="col-12 col-md">
-                                            <h4 class="text-900 mb-0 card-title" data-anchor="data-anchor"> {{$organisation->name}} - Roles and Permissions</h4>
+                                            <h4 class="text-900 mb-0 card-title" data-anchor="data-anchor">Andrelin
+                                                Enterprises - Online Shops </h4>
                                         </div>
                                     </div>
                                 </div>
@@ -52,56 +72,44 @@
                                     <div class="p-4 code-to-copy">
                                         <div>
                                             <div class="table-responsive">
-                                                <table style="width: 100%;" id="buttons-datatables"
-                                                       class="display table table-bordered dataTable no-footer"
-                                                       aria-describedby="buttons-datatables_info">
+                                                <table id="buttons-datatables"
+                                                       class="table table-striped table-sm fs--1 mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th class="sorting sorting_asc" tabindex="0"
-                                                        >#
+                                                        <th class="sort border-top ps-3" data-sort="name">Name</th>
+                                                        <th class="sort border-top" data-sort="type">Shop Type</th>
+                                                        <th class="border-top">Action
                                                         </th>
-                                                        <th class="sorting" tabindex="0">Role
-                                                        </th>
-
-                                                        <th class="sorting" tabindex="0" >Guard name
-                                                        </th>
-
-                                                        <th class="sorting" tabindex="0">Permissions</th>
-
-                                                        <th class="sorting" tabindex="0">Action</th>
-
                                                     </tr>
                                                     </thead>
-                                                    <tbody>
-                                                    @foreach($roles as $role)
-                                                        <tr class="even">
-                                                            <td class="sorting_1">{{$loop->iteration}}</td>
-                                                            <td>{{$role->name}}</td>
-                                                            <td>{{$role->guard_name}}</td>
+                                                    <tbody class="list">
+                                                    @foreach($shops as $shop)
+                                                        <tr>
+                                                            <td class="align-middle ps-3 ">{{$shop->name}}</td>
+                                                            <td class="align-middle ps-3">{{$shop->type ?? ''}}</td>
 
-
-                                                            <td>
-                                                                <a href="{{route('admin.permissions.assign',[$organisation->slug,$role->id])}}"
-                                                                   class="btn btn-sm btn-primary" title="View permissions">
-                                                                    <i class="fa fa-terminal"></i> Assign Permissions
-                                                                </a>
-                                                            </td>
-                                                            <td>
+                                                            <td class="align-middle ps-3">
                                                                 <!-- Edit Button -->
-                                                                <a href="javascript:void(0);" class="edit-button btn btn-sm btn-primary"
-                                                                   data-name="{{ $role->name }}" data-id="{{ $role->id }}" title="Edit">
+                                                                <a href="javascript:void(0);"
+                                                                   class="edit-button btn btn-outline-primary btn-sm me-1 mb-1"
+                                                                   data-name="{{ $shop->name }}"
+                                                                   data-type="{{ $shop->type }}"
+                                                                   data-description="{{ $shop->description }}"
+                                                                   data-slug="{{ $shop->slug }}" title="Edit">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-
                                                                 <!-- Delete Button -->
                                                                 <form
-                                                                    action="{{ route('admin.organisation-roles.destroy', $role->id) }}"
-                                                                    method="POST" onsubmit="return confirm('Are you sure?');"
+                                                                    action="{{ route('shop.destroy', $shop->slug) }}"
+                                                                    method="POST"
+                                                                    onsubmit="return confirm('Are you sure?');"
                                                                     style="display: inline-block;">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="btn btn-sm btn-danger" title="Delete">
-                                                                        <i class="fa fa-trash"></i>
+                                                                    <button type="submit"
+                                                                            class="btn btn-outline-danger btn-sm me-1 mb-1"
+                                                                            title="Delete">
+                                                                        <i class="fa fa-trash"> </i>
                                                                     </button>
                                                                 </form>
                                                             </td>
@@ -125,29 +133,41 @@
                                 <div class="card-header p-4 border-bottom border-300 bg-soft">
                                     <div class="row g-3 justify-content-between align-items-center">
                                         <div class="col-12 col-md">
-                                            <h4 id="card-title" class="text-900 mb-0" data-anchor="data-anchor">Add Role</h4>
+                                            <h4 class="text-900 mb-0" data-anchor="data-anchor">Add New Shop</h4>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="p-4 code-to-copy">
-                                        <form id="edit-form"
-                                              action="{{route('admin.organisation-roles.store',$organisation->slug)}}"
-                                              method="post" enctype="multipart/form-data">
+                                        <form id="edit-form" action="/admin/shop/store" method="post"
+                                              enctype="multipart/form-data">
                                             <input type="hidden" name="_method" value="POST">
                                             @csrf
                                             <div class="mb-3">
 
-                                                <label class="form-label" for="exampleFormControlInput">Role</label>
+                                                <label class="form-label" for="exampleFormControlInput">Shop</label>
                                                 <input class="form-control" name="name" id="name" type="text"
-                                                       placeholder="Enter role eg. finance officer"/>
+                                                       placeholder="Enter name"/>
+                                            </div>
+                                            <div class="mb-3">
+
+                                                <label class="form-label" for="exampleFormControlInput">Shop
+                                                    Type</label>
+                                                <input class="form-control" name="type" id="type" type="text"
+                                                       placeholder="Enter Type"/>
+                                            </div>
+                                            <div class="mb-0">
+                                                <label class="form-label" for="exampleTextarea">Description</label>
+                                                <textarea name="description" class="form-control" id="description"
+                                                          rows="4"></textarea>
                                             </div>
 
                                             <hr/>
+
                                             <div class="col-12">
                                                 <div class="row ">
                                                     <div >
-                                                        <button id="submit-button" class="btn btn-primary btn-sm w-100">Add New Role</button>
+                                                        <button id="submit-button" class="btn btn-primary btn-sm w-100">Add New Shop</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,8 +182,6 @@
                 <!-- end custom content -->
 
             </div>
-
-
         </div>
     </div>
 
@@ -201,34 +219,44 @@
             submitButton.text('Add New');
             //on load by default name field to be empty
             $('#name').val('');
-            var organisation_id = $('#organisation_id').val();
 
             // Click event for the edit button
             $('.edit-button').on('click', function () {
                 var name = $(this).data('name');
-                var id = $(this).data('id');
-
+                var description = $(this).data('description');
+                var type = $(this).data('type');
+                var slug = $(this).data('slug');
 
                 // Set form action for update, method to PATCH, and button text to Update
-                $('#edit-form').attr('action', '/admin/organisation-roles/' + id + '/update');
+                $('#edit-form').attr('action', '/admin/shop/' + slug + '/update');
                 $('input[name="_method"]').val('PATCH');
-                submitButton.text('Update');
+                submitButton.text('Update - ' + name + ' Shop');
                 // Populate the form for editing
                 $('#name').val(name);
-                $('#card-title').text('Edit - ' + name + 'Organisation role');
-                $('#page-title').text('Edit - ' + name + ' Organisation role');
+                $('#description').val(description);
+                $('#type').val(type);
+                $('#card-title').text('Edit - ' + name + ' Online Shop');
+                $('#page-title').text('Edit - ' + name + ' Online Shop');
             });
 
             // Click event for adding a new item
             $('#new-button').on('click', function () {
                 // Clear the form, set action for creation, method to POST, and button text to Add New
+                $('#edit-form').attr('action', '/admin/shops/store');
                 $('input[name="_method"]').val('POST');
                 submitButton.text('Add New');
                 $('#name').val('');
-                $('#card-title').text('Add Organisation role');
-                $('#page-title').text('Add New Organisation role');
+                $('#card-title').text('Add Online Shop');
+                $('#page-title').text('Add New Online Shop');
             });
+
+            setTimeout(function() {
+                $('.alert').fadeOut('slow', function() {
+                    $(this).remove(); // Remove the alert from the DOM after fading out
+                });
+            }, 5000);
         });
+
     </script>
 
 @endpush

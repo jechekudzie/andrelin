@@ -10,15 +10,11 @@
                     <h5 class="text-700 fw-semi-bold">The hierarchy for ANDRELIN ENTERPRISES.</h5>
                 </div>
                 <div class="col-auto">
-                    <a class="btn btn-primary px-5" href="{{route('admin.organisation-types.index')}}">
-                        <i class="fa-solid fa-plus me-2"></i>
+                    <a class="btn btn-primary px-5" href="{{route('admin.organisations.index')}}">
+                        <i class="fa-solid fa-refresh me-2"></i>
                         Refresh
                     </a>
 
-                    <a class="btn btn-primary px-5" href="#">
-                        <i class="fa-solid fa-plus me-2"></i>
-                        Add new project
-                    </a>
                 </div>
 
                 <br/>
@@ -40,7 +36,7 @@
                                 <div class="card-body p-0">
                                     <div class="p-4 code-to-copy">
                                         <!--start tree-->
-                                        <div id="tree"></div>
+                                        <div style="overflow:scroll; height:400px;" id="tree"></div>
                                         <!--end tree-->
                                     </div>
                                 </div>
@@ -55,7 +51,7 @@
                                 <div class="card-header p-4 border-bottom border-300 bg-soft">
                                     <div class="row g-3 justify-content-between align-items-center">
                                         <div class="col-12 col-md">
-                                            <h4 class="text-900 mb-0 card-title" data-anchor="data-anchor">Add new subsidiary</h4>
+                                            <h4 class="text-900 mb-0 card-title" id="card-title" data-anchor="data-anchor">Add New</h4>
                                             <p style="font-size: 15px;color: red;"><i class="fa fa-arrow-left"></i>
                                                 Select an
                                                 organisation type</p>
@@ -70,12 +66,12 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label class="form-label" for="exampleFormControlInput">Subsidiary</label>
-                                                <input class="form-control" name="name" id="name" type="text"
+                                                <input class="form-control" name="name" id="fieldName" type="text"
                                                        placeholder="Enter name"/>
                                             </div>
                                             <div class="mb-0">
                                                 <label class="form-label" for="exampleTextarea">Describe Organisation Type</label>
-                                                <textarea name="description" class="form-control" id="description" rows="4"></textarea>
+                                                <textarea name="description" class="form-control" id="fieldDescription" rows="4"></textarea>
                                             </div>
 
                                             <!-- Make sure the name attribute matches your database column name -->
@@ -86,10 +82,10 @@
 
                                             <hr/>
 
-                                            <div class="col-12 gy-6">
-                                                <div class="row g-3 justify-content-end">
-                                                    <div class="col-auto">
-                                                        <button class="btn btn-primary px-5 px-sm-15" id="submit-button">Add New</button>
+                                            <div class="col-12">
+                                                <div class="row ">
+                                                    <div >
+                                                        <button id="submit-button" class="btn btn-primary btn-sm">Add New</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,8 +171,6 @@
             var cardTitle = $('#card-title');
             var pageTitle = $('#page-title');
 
-
-
             // Handle node selection
             tree.on('select', function (e, $node, id) {
                 saveSelectedNodeId(id);
@@ -197,12 +191,9 @@
                     organisationName = nodeName;
                     organisationSlug = nodeData.slug;
 
-                    cardTitle.text('Add - ' + organisationName + ' for ' + parentName);
-                    pageTitle.text('Add - ' + organisationName);
 
-                    /* alert('Parent id '+ parentId + ' and Parent Name '+ parentName + ' Type id '+ typeId + ' and Type Name '+ typeName);*/
-
-                    submitButton.text('Add ' + organisationName + ' New');
+                    submitButton.text('Add New ' + organisationName);
+                    cardTitle.text('Add New - ' + organisationName);
                     $('#parent_id').val(parentId);
                     $('#parent_name').val(parentName);
                     $('#organisation_type').val(typeName);

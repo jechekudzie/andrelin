@@ -7,26 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Product extends Model
+class Supplier extends Model
 {
-    use HasFactory,HasSlug;
+    use HasFactory, HasSlug;
 
     protected $guarded = [];
-
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 
     public function inventoryBatches()
     {
         return $this->hasMany(InventoryBatch::class);
-    }
-
-    public function shops()
-    {
-        return $this->belongsToMany(Shop::class)->withTimestamps();
     }
 
     public function getSlugOptions(): SlugOptions

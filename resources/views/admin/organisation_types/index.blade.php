@@ -11,14 +11,10 @@
                 </div>
                 <div class="col-auto">
                     <a class="btn btn-primary px-5" href="{{route('admin.organisation-types.index')}}">
-                        <i class="fa-solid fa-plus me-2"></i>
+                        <i class="fa-solid fa-refresh me-2"></i>
                         Refresh
                     </a>
 
-                    <a class="btn btn-primary px-5" href="#">
-                        <i class="fa-solid fa-plus me-2"></i>
-                        Add new project
-                    </a>
                 </div>
                 <br/>
                 <div id="messageContainer"></div>
@@ -55,7 +51,7 @@
                                 <div class="card-header p-4 border-bottom border-300 bg-soft">
                                     <div class="row g-3 justify-content-between align-items-center">
                                         <div class="col-12 col-md">
-                                            <h4 class="text-900 mb-0" data-anchor="data-anchor">Structure</h4>
+                                            <h4 class="text-900 mb-0" data-anchor="data-anchor">Add Hierarchy Structure</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -80,10 +76,10 @@
 
                                             <hr/>
 
-                                            <div class="col-12 gy-6">
-                                                <div class="row g-3 justify-content-end">
-                                                    <div class="col-auto">
-                                                        <button class="btn btn-primary px-5 px-sm-15">Add To Structure</button>
+                                            <div class="col-12">
+                                                <div class="row ">
+                                                    <div >
+                                                        <button id="submit-button" class="btn btn-primary btn-sm">Add To Structure</button>
                                                     </div>
                                                 </div>
                                             </div>
