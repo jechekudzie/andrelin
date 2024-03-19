@@ -22,7 +22,7 @@
                 <div id="errorContainer"></div>
                 <!-- Start custom content -->
                 <div class="row g-4">
-                    <div class="col-4 col-xl-4">
+                    <div class="col-md-4 col-xl-4">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
                                  data-component-card="data-component-card">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <div class="col-8 col-xl-8 ">
+                    <div class="col-md-8 col-xl-8 ">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
                                  data-component-card="data-component-card">
@@ -65,7 +65,7 @@
                                             <input type="hidden" name="_method" value="POST">
                                             @csrf
                                             <div class="mb-3">
-                                                <label class="form-label" for="exampleFormControlInput">Subsidiary</label>
+                                                <label id="label" class="form-label" for="exampleFormControlInput">Subsidiary</label>
                                                 <input class="form-control" name="name" id="fieldName" type="text"
                                                        placeholder="Enter name"/>
                                             </div>
@@ -169,7 +169,7 @@
 
             var submitButton = $('#submit-button');
             var cardTitle = $('#card-title');
-            var pageTitle = $('#page-title');
+            var label = $('#label');
 
             // Handle node selection
             tree.on('select', function (e, $node, id) {
@@ -199,12 +199,15 @@
                     $('#organisation_type').val(typeName);
                     $('#organisation_type_id').val(typeId);
 
+
+
                     if (organisationType === 'ot') {
                         organisationForm.show();
                         $('input[name="_method"]').val('POST');
                         clearOrganisationTypeFields();
                         $('#organisationForm').attr('action', '/admin/organisations/store');
                         actionUrl = '/admin/organisations/store';
+                        label.text('Add new ' + organisationName);
                         manageOrganisation.hide();
                     }
 
@@ -216,6 +219,7 @@
                         submitButton.text('Update ' + organisationName);
 
                         cardTitle.text('Edit - ' + organisationName);
+                        label.text('Edit ' + organisationName);
                         fetchOrganisation(organisationSlug);
                     }
 

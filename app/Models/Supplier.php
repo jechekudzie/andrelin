@@ -18,6 +18,18 @@ class Supplier extends Model
         return $this->hasMany(InventoryBatch::class);
     }
 
+    public function supplierProductLines()
+    {
+        return $this->hasMany(SupplierProductLine::class, 'supplier_id');
+    }
+
+
+
+    public function isSupplyingProduct($productId)
+    {
+        return $this->supplierProductLines()->where('product_id', $productId)->exists();
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

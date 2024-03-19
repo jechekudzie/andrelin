@@ -23,10 +23,15 @@ class InventoryBatch extends Model
         return $this->belongsTo(Supplier::class);
     }
 
+    public function stockDistributions()
+    {
+        return $this->hasMany(StockDistribution::class);
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom(['product_id', 'supplier_id', 'id'])
             ->saveSlugsTo('slug');
     }
 

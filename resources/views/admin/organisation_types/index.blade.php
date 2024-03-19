@@ -22,7 +22,7 @@
                 <!-- Start custom content -->
                 <div class="row g-4">
 
-                    <div class="col-4 col-xl-4">
+                    <div class="col-md-4 col-xl-4">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
                                  data-component-card="data-component-card">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <div class="col-8 col-xl-8 ">
+                    <div class="col-md-8 col-xl-8 ">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
                                  data-component-card="data-component-card">

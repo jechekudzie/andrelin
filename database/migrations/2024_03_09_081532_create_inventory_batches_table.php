@@ -22,6 +22,9 @@ return new class extends Migration
             $table->date('ordered_date')->nullable();
             $table->date('received_date')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->decimal('cost_price_per_unit', 8, 2);
+            $table->decimal('landing_cost', 8, 2);
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

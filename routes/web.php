@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect( )->route('admin.organisation-types.index');
 });
 
 Route::get('/admin', function () {
@@ -87,6 +87,34 @@ Route::post('admin/products/store', [\App\Http\Controllers\ProductController::cl
 Route::get('admin/products/{product}/edit', [\App\Http\Controllers\ProductController::class, 'edit'])->name('products.edit');
 Route::patch('admin/products/{product}/update', [\App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
 Route::delete('admin/products/{product}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('products.destroy');
+
+//suppliers routes
+Route::get('admin/suppliers', [\App\Http\Controllers\SupplierController::class, 'index'])->name('suppliers.index');
+Route::post('admin/suppliers/store', [\App\Http\Controllers\SupplierController::class, 'store'])->name('suppliers.store');
+Route::get('admin/suppliers/{supplier}/edit', [\App\Http\Controllers\SupplierController::class, 'edit'])->name('suppliers.edit');
+Route::patch('admin/suppliers/{supplier}/update', [\App\Http\Controllers\SupplierController::class, 'update'])->name('suppliers.update');
+Route::delete('admin/suppliers/{supplier}', [\App\Http\Controllers\SupplierController::class, 'destroy'])->name('suppliers.destroy');
+
+//supplier product lines routes
+Route::get('admin/suppliers/{supplier}/product-lines', [\App\Http\Controllers\SupplierProductLineController::class, 'index'])->name('suppliers.product-lines.index');
+Route::post('admin/suppliers/{supplier}/product-lines/store', [\App\Http\Controllers\SupplierProductLineController::class, 'store'])->name('suppliers.product-lines.store');
+Route::get('admin/suppliers/{supplier}/product-lines/{supplierProductLine}/edit', [\App\Http\Controllers\SupplierProductLineController::class, 'edit'])->name('suppliers.product-lines.edit');
+Route::patch('admin/suppliers/{supplier}/product-lines/{supplierProductLine}/update', [\App\Http\Controllers\SupplierProductLineController::class, 'update'])->name('suppliers.product-lines.update');
+Route::delete('admin/suppliers/{supplier}/product-lines/{supplierProductLine}', [\App\Http\Controllers\SupplierProductLineController::class, 'destroy'])->name('suppliers.product-lines.destroy');
+
+
+//stock routes
+Route::get('admin/stock', [\App\Http\Controllers\InventoryBatchController::class, 'index'])->name('stock.index');
+Route::get('admin/stock/{product}/create', [\App\Http\Controllers\InventoryBatchController::class, 'create'])->name('stock.create');
+Route::post('admin/stock/{product}/store', [\App\Http\Controllers\InventoryBatchController::class, 'store'])->name('stock.store');
+Route::get('admin/stock/{stock}/edit', [\App\Http\Controllers\InventoryBatchController::class, 'edit'])->name('stock.edit');
+Route::patch('admin/stock/{stock}/update', [\App\Http\Controllers\InventoryBatchController::class, 'update'])->name('stock.update');
+Route::delete('admin/stock/{stock}', [\App\Http\Controllers\InventoryBatchController::class, 'destroy'])->name('stock.destroy');
+
+//stock tracking routes for a product
+Route::get('admin/stock/{product}/track', [\App\Http\Controllers\StockTrackingController::class, 'index'])->name('stock.track.index');
+Route::post('admin/stock/{product}/track/store', [\App\Http\Controllers\StockTrackingController::class, 'store'])->name('stock.track.store');
+Route::patch('admin/stock/{product}/track/update', [\App\Http\Controllers\StockTrackingController::class, 'update'])->name('stock.track.update');
 
 
 Route::get('/dashboard', function () {

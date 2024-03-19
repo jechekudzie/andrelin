@@ -19,6 +19,13 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function supplierProductLines()
+    {
+        // Assuming 'product_id' is the foreign key in the 'supplier_product_lines' table
+        return $this->hasMany(SupplierProductLine::class, 'product_id', 'id');
+    }
+
+
     public function inventoryBatches()
     {
         return $this->hasMany(InventoryBatch::class);
@@ -27,6 +34,21 @@ class Product extends Model
     public function shops()
     {
         return $this->belongsToMany(Shop::class)->withTimestamps();
+    }
+
+    public function stockTracking()
+    {
+        return $this->hasOne(StockTracking::class);
+    }
+
+    public function branchStocks()
+    {
+        return $this->hasMany(BranchStock::class);
+    }
+
+    public function stockDistributions()
+    {
+        return $this->hasMany(StockDistribution::class);
     }
 
     public function getSlugOptions(): SlugOptions

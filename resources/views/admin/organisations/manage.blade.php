@@ -33,7 +33,7 @@
                 <!-- Start custom content -->
                 <div class="row g-4">
 
-                    <div class="col-12 col-xl-12">
+                    <div class="col-md-12 col-xl-12">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
                                  data-component-card="data-component-card">

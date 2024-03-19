@@ -44,6 +44,7 @@
                 <h5 class="text-700 fw-semi-bold">Modify the details below to update the product</h5>
             </div>
             <div class="col-auto">
+                <a href="{{route('products.index')}}" class="btn btn-primary mb-2 mb-sm-0" type="submit"><i class="fa-solid fa-caret-left me-2"></i> Back</a>
                 <button class="btn btn-primary mb-2 mb-sm-0" type="submit">Update Product</button>
             </div>
         </div>

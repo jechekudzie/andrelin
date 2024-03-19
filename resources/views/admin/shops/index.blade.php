@@ -202,6 +202,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
 
     <script>
         <!-- datatable js -->
@@ -221,7 +222,7 @@
             $('#name').val('');
 
             // Click event for the edit button
-            $('.edit-button').on('click', function () {
+            $('#buttons-datatables').on('click', '.edit-button', function () {
                 var name = $(this).data('name');
                 var description = $(this).data('description');
                 var type = $(this).data('type');

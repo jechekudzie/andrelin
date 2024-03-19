@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InventoryBatch;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
-class InventoryBatchController extends Controller
+class StockController extends Controller
 {
     //
-    public function index()
+    public function index(Product $product)
     {
         $suppliers = Supplier::all();
         $products = Product::all();
@@ -51,39 +52,7 @@ class InventoryBatchController extends Controller
         // Update the InventoryBatch instance with the new batch_number
         $inventoryBatch->update(['batch_number' => $batchNumber]);
 
-        if ($product->inventoryBatches()->exists()) {
-            $quantity_available = $product->inventoryBatches()->where('is_active', 1)->sum('quantity_available');
-
-
-            // Create a new StockTracking instance and save the form data
-            $product->stockTracking()->updateOrCreate(
-                ['product_id' => $product->id], // Find by this attribute
-                [
-                    'quantity' => $quantity_available, // Update or create with these values
-                    'quantity_available' => $quantity_available,
-                ]
-            );
-
-            if ($product->stockTracking()->exists()) {
-                $quantity = $product->stockTracking()->first()->quantity;
-                $reorder_level = $product->stockTracking()->first()->reorder_level;
-
-                $reorder_level_value = round(($reorder_level / 100) * $quantity, 0);
-                $product->stockTracking()->updateOrCreate(
-                    ['product_id' => $product->id], // Find by this attribute
-                    [
-                        'reorder_level_value' => $reorder_level_value, // Update or create with these values
-                    ]
-                );
-            }
-
-
-        }
-
-
         // Redirect or return response as necessary
-        return back()->with('success', 'Inventory batch created successfully!');
+        return redirect()->route('stock.index',$product->slug)->with('success', 'Inventory batch created successfully!');
     }
-
-
 }

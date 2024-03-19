@@ -10,7 +10,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>ANDRELIN ENTERPRISES</title>
+    <title> @yield('title', 'ANDRELIN ENTERPRISES') </title>
 
 
     <!-- ===============================================-->
@@ -195,10 +195,19 @@
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="apps/e-commerce/admin/orders.html"
-                                                            data-bs-toggle="" aria-expanded="false">
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Request::routeIs('suppliers.*') ? 'active' : '' }}" href="{{route('suppliers.index')}}" data-bs-toggle="" aria-expanded="false">
                                             <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text">Orders</span>
+                                                    class="nav-link-text"> Suppliers </span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Request::routeIs('stock.*') ? 'active' : '' }}" href="{{route('stock.index')}}" data-bs-toggle="" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text"> Stock Management </span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
@@ -260,8 +269,8 @@
                             </div>
                         </div>
                         <!-- parent pages-->
-                        <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1"
-                                                         href="#nv-project-management" role="button"
+                        <div class="nav-item-wrapper">
+                            <a class="nav-link dropdown-indicator label-1" href="#nv-project-management" role="button"
                                                          data-bs-toggle="collapse" aria-expanded="false"
                                                          aria-controls="nv-project-management">
                                 <div class="d-flex align-items-center">
@@ -330,9 +339,9 @@
                     <span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
                 <a class="navbar-brand me-1 me-sm-3" href="{{url('/admin')}}">
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center"><img src="assets/img/icons/logo.png" alt="phoenix"
-                                                                    width="27"/>
-                            <p class="logo-text ms-2 d-none d-sm-block">ANDRELIN</p>
+                        <div class="d-flex align-items-center"><img src="{{asset('logo.png')}}" alt="phoenix"
+                                                                    width="57"/>
+                            <p class="logo-text ms-2 d-none d-sm-block">ANDRELIN ENTERPRISES</p>
                         </div>
                     </div>
                 </a>

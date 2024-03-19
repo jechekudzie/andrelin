@@ -99,6 +99,16 @@ class Organisation extends Model
     }
 
 
+    public function branchStocks()
+    {
+        return $this->hasMany(BranchStock::class);
+    }
+
+    public function stockDistributions()
+    {
+        return $this->hasMany(StockDistribution::class);
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

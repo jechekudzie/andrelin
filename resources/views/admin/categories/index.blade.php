@@ -128,6 +128,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-3 col-xl-3">
                         <div class="mb-9">
                             <div class="card shadow-none border border-300 my-4"
@@ -180,10 +181,6 @@
         </div>
     </div>
 
-    <script>
-
-    </script>
-
 @endsection
 
 @push('scripts')
@@ -197,6 +194,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
+
 
     <script>
         <!-- datatable js -->
@@ -209,46 +208,33 @@
 
         // Assuming you have jQuery available
         $(document).ready(function () {
-            // Define the submit button
-            var submitButton = $('#submit-button'); // Replace with your actual button ID or class
+            var submitButton = $('#submit-button');
             submitButton.text('Add New');
-            //on load by default name field to be empty
             $('#name').val('');
 
-            // Click event for the edit button
-            $('.edit-button').on('click', function () {
+            // Use event delegation for the edit button
+            // Replace '#data-table-container' with the ID or class of your table's parent container
+            $('#buttons-datatables').on('click', '.edit-button', function () {
                 var name = $(this).data('name');
                 var description = $(this).data('description');
                 var slug = $(this).data('slug');
 
-                // Set form action for update, method to PATCH, and button text to Update
                 $('#edit-form').attr('action', '/admin/product-categories/' + slug + '/update');
                 $('input[name="_method"]').val('PATCH');
                 submitButton.text('Update Product Category');
-                // Populate the form for editing
                 $('#name').val(name);
                 $('#description').val(description);
                 $('#card-title').text('Edit - ' + name + ' Product Category');
                 $('#page-title').text('Edit - ' + name + ' Product Category');
             });
 
-            // Click event for adding a new item
-            $('#new-button').on('click', function () {
-                // Clear the form, set action for creation, method to POST, and button text to Add New
-                $('#edit-form').attr('action', '/admin/product-categoriess/store');
-                $('input[name="_method"]').val('POST');
-                submitButton.text('Add New');
-                $('#name').val('');
-                $('#card-title').text('Add Product Category');
-                $('#page-title').text('Add New Product Category');
-            });
-
             setTimeout(function() {
                 $('.alert').fadeOut('slow', function() {
-                    $(this).remove(); // Remove the alert from the DOM after fading out
+                    $(this).remove();
                 });
             }, 5000);
         });
+
 
     </script>
 
