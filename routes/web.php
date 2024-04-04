@@ -19,12 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect( )->route('admin.organisation-types.index');
-});
+    return view('welcome');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->name('admin.index');
+});
+Route::get('/admin', [\App\Http\Controllers\AdminController::class,'index'] );
 
 //Display all organisation types via API
 Route::get('/admin/organisation-types', [OrganisationTypeController::class, 'index'])->name('admin.organisation-types.index');

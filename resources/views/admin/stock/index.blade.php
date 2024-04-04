@@ -81,15 +81,9 @@
                                                         <th class="sort border-top ps-3" data-sort="name">Image</th>
                                                         <th class="sort border-top ps-3" data-sort="name">Product</th>
                                                         <th class="sort border-top ps-3" data-sort="name">Category</th>
-                                                        <th class="sort border-top ps-3" data-sort="name">Customer Price</th>
-                                                        <th class="sort border-top ps-3" data-sort="name">Dealer Price
-                                                        </th>
                                                         <th class="sort border-top ps-3" data-sort="name">In-Stock</th>
-                                                        <th class="sort border-top ps-3" data-sort="name">Re-Order
-                                                            level
-                                                        </th>
-                                                        <th class="border-top">Action
-                                                        </th>
+                                                        <th class="sort border-top ps-3" data-sort="name">Re-Order level</th>
+                                                        <th class="border-top">Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody class="list">
@@ -105,8 +99,6 @@
                                                             </td>
                                                             <td class="align-middle ps-3 ">{{$product->name}}</td>
                                                             <td class="align-middle ps-3">{{$product->category->name ?? ''}}</td>
-                                                            <td class="align-middle ps-3 ">{{$product->customer_price}}</td>
-                                                            <td class="align-middle ps-3 ">{{$product->dealer_price}}</td>
                                                             <td class="align-middle ps-3 ">
                                                                 {{$product->inventoryBatches->sum('quantity_available')}}
                                                             </td>
@@ -117,6 +109,11 @@
                                                                 @endif
                                                             </td>
                                                             <td class="align-middle ps-3">
+                                                                <a style="display: inline-block;"
+                                                                   href="{{route('stock.create', $product->slug)}}"
+                                                                   class="edit-button btn btn-outline-primary btn-sm me-1 mb-1" title="Edit">
+                                                                    <i class="fa fa-gear"></i> Stock Distribution
+                                                                </a>
                                                                 <!-- Edit Button -->
                                                                 <a style="display: inline-block;"
                                                                    href="{{route('stock.create', $product->slug)}}"
