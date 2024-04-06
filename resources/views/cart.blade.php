@@ -1,5 +1,19 @@
 @extends('layouts.website');
 
+@push('head')
+    <style>
+        .project-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .vertical-center {
+            vertical-align: middle !important;
+        }
+    </style>
+@endpush
+
 @section('content')
 
     <!-- Page Header Start -->
@@ -48,7 +62,7 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                         Total
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    <th style="text-align: right" class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                         Actions
                     </th>
                 </tr>
@@ -136,7 +150,7 @@
             <td class="vertical-center" style="width: 35px"><input type="number" value="${product.quantity}" onchange="handleQuantityChange(event, '${product.id}')"></td>
             <td class="vertical-center">$${product.customer_price}</td>
             <td class="vertical-center">$${(product.quantity * parseFloat(product.customer_price)).toFixed(2)}</td>
-            <td class="vertical-center"><button class="remove-from-cart btn btn-danger" data-id="${product.id}">Remove</button></td>
+            <td class="vertical-center" style="text-align: right"><button class="remove-from-cart btn btn-danger" data-id="${product.id}">Remove</button></td>
         </tr>
     `;
         }
