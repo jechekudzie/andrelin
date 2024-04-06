@@ -43,9 +43,9 @@ Route::get('/shop', function () {
 
     // Generate price ranges
     $priceRanges = [];
-    for ($i = $roundedMinPrice; $i <= $roundedMaxPrice; $i += 10) {
+    for ($i = $roundedMinPrice; $i <= $roundedMaxPrice; $i += 100) {
         $rangeStart = $i + 1;
-        $rangeEnd = $i + 1 + 9;
+        $rangeEnd = $i + 1 + 99;
         $priceRanges[] = "$$rangeStart - $$rangeEnd";
     }
 
@@ -53,6 +53,10 @@ Route::get('/shop', function () {
         ->with('shops', $shops)
         ->with('priceRanges', $priceRanges)
         ->with('categories', $categories);
+});
+
+Route::get('/cart', function () {
+    return view('cart');
 });
 
 

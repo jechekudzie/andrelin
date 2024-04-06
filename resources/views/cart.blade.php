@@ -129,7 +129,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item highlighted-menu"><a class="nav-link" href="{{ url('/cart') }}">Cart <span
+                        <li class="nav-item highlighted-menu"><a class="nav-link" href="#">Cart <span
                                     id="cartCount"></span> </a></li>
                     </ul>
                 </div>
@@ -166,64 +166,34 @@
 </div>
 <!-- Page Header End -->
 
-<div class="contact-form wow fadeInUp my-5">
-    <div class="container">
-        <form>
-            <div class="row">
-                <div class="form-group col-md-3">
-                    <input type="text" id="searchBox" name="filter" class="form-control" placeholder="Search Items"
-                           required>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <!-- HTML -->
-                <div class="form-group col-md-3">
-                    <select class="form-control" id="shopFilter">
-                        <option value="">Select Shop</option>
-                        @foreach($shops as $shop)
-                            <option value="{{ $shop->id }}">{{ $shop->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <select class="form-control" id="categoryFilter">
-                        <option value="">Select Category</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <select class="form-control" id="priceRangeFilter">
-                        <option value="">All</option>
-                        @foreach($priceRanges as $range)
-                            <option value="{{ $range }}">{{ $range }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-            </div>
-        </form>
-    </div>
-</div>
-
 <!-- Our Projects Page Start -->
-<div class="our-projects" style="padding: 0px 0px 50px">
+<div class="our-projects">
     <div class="container">
-        <div class="row" id="productList">
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Post Pagination Start -->
-                <div class="post-pagination wow fadeInUp" data-wow-delay="1.5s">
-                    <ul class="pagination" id="pagination"></ul>
+        <!-- HTML -->
+        <div class="flex" style="width: 100%">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                        <table id="cartTable"
+                               class="min-w-full text-left text-sm font-light text-surface dark:text-white">
+                            <thead class="border-b border-neutral-200 font-medium dark:border-white/10">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">#</th>
+                                <th scope="col" class="px-6 py-4">Product Name</th>
+                                <th scope="col" class="px-6 py-4">Price</th>
+                                <th scope="col" class="px-6 py-4">Quantity</th>
+                                <th scope="col" class="px-6 py-4">Total</th>
+                                <th scope="col" class="px-6 py-4">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cartBody">
+                            <!-- Cart items will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <!-- Post Pagination End -->
             </div>
         </div>
-
     </div>
 </div>
 <!-- Our Projects Page End -->
@@ -433,153 +403,84 @@
 <!-- Main Custom js file -->
 <script src="{{ asset('website/js/function.js') }}"></script>
 <script>
-    $(document).ready(function () {
-        const productList = $('#productList');
-        const pagination = $('#pagination');
-        const productsPerPage = 8;
-        let currentPage = 1;
+    // JavaScript
+    document.addEventListener('DOMContentLoaded', function () {
+        const cartTable = document.getElementById('cartTable');
+        const cartBody = document.getElementById('cartBody');
 
-        // Function to render products for a specific page
-        function renderProductsForPage(products, page) {
-            const startIndex = (page - 1) * productsPerPage;
-            const endIndex = startIndex + productsPerPage;
-            const productsForPage = products.slice(startIndex, endIndex);
+        // Load cart items from session storage
+        let cartItems = JSON.parse(sessionStorage.getItem('cart')) || {};
 
-            productList.empty();
-            productsForPage.forEach(function (product) {
-                productList.append(`
-                    <div class="col-lg-3 col-md-6">
-                    <!-- Project Item Start -->
-                    <div class="project-item wow fadeInUp" data-wow-delay="0.25s">
-                        <div class="project-image">
-                            <figure>
-                                <img src="` + product.image + `" alt="">
-                            </figure>
-                        </div>
+        // Function to update cart view
+        function updateCartView() {
+            // Clear previous cart view
+            cartBody.innerHTML = '';
 
-                        <div class="project-content">
-                            <h2><a href="#">` + product.name + `</a></h2>
-                            $` + product.customer_price + `
-                        </div>
+            // Initialize total price
+            let totalPrice = 0;
 
-                        <div class="project-link">
-                            <a class="addToCart" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
-                        </div>
-                        </div>
-                        <!-- Project Item End -->
-                    </div>
-                    `);
-            });
-        }
+            // Iterate over cart items and populate the cart view
+            Object.entries(cartItems).forEach(([productId, quantity], index) => {
+                const product = getProductById(productId); // Assuming you have a function to fetch product details
+                if (product) {
+                    const {name, price} = product;
+                    const total = quantity * price;
+                    totalPrice += total;
 
-        // Function to render pagination links
-        function renderPagination(products) {
-            pagination.empty();
-            const totalPages = Math.ceil(products.length / productsPerPage);
-            for (let i = 1; i <= totalPages; i++) {
-                const liClass = (i === currentPage) ? 'active' : '';
-                pagination.append('<li class="' + liClass + '"><a href="#">' + i + '</a></li>');
-            }
-        }
+                    // Create table row for each item
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">${index + 1}</td>
+                    <td class="whitespace-nowrap px-6 py-4">${name}</td>
+                    <td class="whitespace-nowrap px-6 py-4">$${price.toFixed(2)}</td>
+                    <td class="whitespace-nowrap px-6 py-4">
+                        <input type="number" class="w-20 px-2 py-1 border rounded-md quantityInput" value="${quantity}">
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4">$${total.toFixed(2)}</td>
+                    <td class="whitespace-nowrap px-6 py-4">
+                        <button class="removeFromCart" data-id="${productId}">Remove</button>
+                    </td>
+                `;
 
-        // Function to fetch and filter products
-        function fetchAndFilterProducts(searchTerm = '', shopId = '', categoryId = '', priceRange = '') {
-            // Modify the URL to include query parameters for filtering
-            let url = '/api/products?search=' + searchTerm;
-            if (shopId !== '') url += '&shop_id=' + shopId;
-            if (categoryId !== '') url += '&category_id=' + categoryId;
-            if (priceRange !== '') url += '&price_range=' + priceRange;
-
-            $.ajax({
-                url: url,
-                method: 'GET',
-                dataType: 'json',
-                success: function (products) {
-                    if (Array.isArray(products)) {
-                        const filteredProducts = products.filter(function (product) {
-                            return product.name.toLowerCase().includes(searchTerm.toLowerCase());
-                        });
-                        renderPagination(filteredProducts);
-                        renderProductsForPage(filteredProducts, currentPage);
-                    } else {
-                        console.error('Error: Expected products to be an array but got', products);
-                    }
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error fetching products:', error);
+                    // Append row to cart body
+                    cartBody.appendChild(row);
                 }
             });
+
+            // Update total price display
+            document.getElementById('totalPrice').innerText = `$${totalPrice.toFixed(2)}`;
+
+            // Update session storage with updated cart
+            sessionStorage.setItem('cart', JSON.stringify(cartItems));
         }
 
-        // Initial fetching of products
-        fetchAndFilterProducts();
-
-        // Filter change event handlers
-        $('#shopFilter, #categoryFilter, #priceRangeFilter').on('change', function () {
-            const searchTerm = $('#searchBox').val().trim();
-            const shopId = $('#shopFilter').val();
-            const categoryId = $('#categoryFilter').val();
-            const priceRange = $('#priceRangeFilter').val();
-            fetchAndFilterProducts(searchTerm, shopId, categoryId, priceRange);
-        });
-
-        // Search box event handler
-        $('#searchBox').on('input', function () {
-            const searchTerm = $(this).val().trim();
-            fetchAndFilterProducts(searchTerm);
-        });
-
-        // Pagination click event handler
-        pagination.on('click', 'li', function () {
-            currentPage = parseInt($(this).text());
-            fetchAndFilterProducts($('#searchBox').val().trim());
-        });
-
-        // Function to handle adding/removing items from the cart
-        function handleCartClick(product) {
-            const cart = JSON.parse(sessionStorage.getItem('cart')) || {};
-            const productId = product.id;
-
-            if (cart[productId]) {
-                // If the product is already in the cart, remove it
-                delete cart[productId];
-                // Update button text to "Add to Cart"
-                $(`button[data-id="${productId}"]`).text('Add to Cart');
-            } else {
-                // If the product is not in the cart, add it
-                cart[productId] = product;
-                // Update button text to "Remove from Cart"
-                $(`button[data-id="${productId}"]`).text('Remove from Cart');
-            }
-            // Update session storage with the updated cart
-            sessionStorage.setItem('cart', JSON.stringify(cart));
-            // Update cart count
-            updateCartCount();
-        }
-
-        // Add event listener to handle "Add to Cart" button clicks
-        $(document).on('click', '.addToCart', function (event) {
-            event.preventDefault();
-
-            console.log($(this).data('product'));
-
-            const product = $(this).data('product');
-            if (product) {
-                handleCartClick(product);
+        // Event listener for quantity input changes
+        cartBody.addEventListener('change', function (event) {
+            const target = event.target;
+            if (target.classList.contains('quantityInput')) {
+                const productId = target.parentNode.parentNode.querySelector('.removeFromCart').getAttribute('data-id');
+                const quantity = parseInt(target.value);
+                if (quantity >= 0) {
+                    cartItems[productId] = quantity;
+                    updateCartView();
+                }
             }
         });
 
-        // Function to update cart count
-        function updateCartCount() {
-            const cart = JSON.parse(sessionStorage.getItem('cart')) || {};
-            const itemCount = Object.keys(cart).length;
-            $('#cartCount').text('(' + itemCount + ')');
-        }
+        // Event listener for remove from cart button clicks
+        cartBody.addEventListener('click', function (event) {
+            const target = event.target;
+            if (target.classList.contains('removeFromCart')) {
+                const productId = target.getAttribute('data-id');
+                delete cartItems[productId];
+                updateCartView();
+            }
+        });
 
-        // Update cart count initially
-        updateCartCount();
-
+        // Initial update of cart view
+        updateCartView();
     });
+
 </script>
 </body>
 </html>
