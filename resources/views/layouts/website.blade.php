@@ -103,7 +103,6 @@
                     <img src="images/logo.svg" alt="Logo">
                 </a>
                 <!-- Logo End -->
-
                 <!-- Main Menu start -->
                 <div class="collapse navbar-collapse main-menu">
                     <ul class="navbar-nav mr-auto" id="menu">
@@ -126,7 +125,8 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item highlighted-menu"><a class="nav-link" href="#">Book Now</a></li>
+                        <li class="nav-item highlighted-menu"><a class="nav-link" href="{{ url('/cart') }}">Cart <span
+                                    id="cartCount"></span> </a></li>
                     </ul>
                 </div>
                 <!-- Main Menu End -->
@@ -138,8 +138,10 @@
         <div class="responsive-menu"></div>
     </div>
 </header>
+
 <!-- Header End -->
 @yield('content')
+
 <!-- Footer Ticker Start -->
 <div class="footer-ticker">
     <div class="scrolling-ticker">
@@ -344,7 +346,6 @@
 <script src="{{ asset('website/js/wow.js') }}"></script>
 <!-- Main Custom js file -->
 <script src="{{ asset('website/js/function.js') }}"></script>
-
 @stack('scripts')
 </body>
 </html>
