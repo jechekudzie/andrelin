@@ -5,6 +5,8 @@ use App\Http\Controllers\OrganisationsController;
 use App\Http\Controllers\OrganisationTypeController;
 use App\Http\Controllers\OrganisationUsersController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
+use App\Models\Shop;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,17 @@ Route::get('/', function () {
     return view('welcome');
 
 });
-Route::get('/admin', [\App\Http\Controllers\AdminController::class,'index'] );
+
+Route::get('/shop', function () {
+    $categories = Category::all();
+    $shops = Shop::all();
+    return view('shop')
+        ->with('shops', $shops)
+        ->with('categories', $categories);
+});
+
+
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
 
 //Display all organisation types via API
 Route::get('/admin/organisation-types', [OrganisationTypeController::class, 'index'])->name('admin.organisation-types.index');
@@ -125,4 +137,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

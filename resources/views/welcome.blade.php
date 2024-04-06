@@ -1,5 +1,7 @@
 @extends('layouts.website')
+
 @push('head') @endpush
+
 <!-- title -->
 @section('title', 'Welcome')
 

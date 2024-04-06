@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,11 @@ Route::get('/admin/organisations', [ApiController::class, 'fetchOrganisationInst
 //organisation
 Route::get('/admin/organisations/{organisation}/edit', [ApiController::class, 'fetchOrganisation'])->name('admin.organisations.edit');
 
+//shop routes to get products and filter products
+Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+//Route::get('/products/{product}
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+
+Route::middleware('auth:sanctum')->get(' / user', function (Request $request) {
     return $request->user();
 });
