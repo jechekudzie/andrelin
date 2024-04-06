@@ -476,10 +476,12 @@
         function renderPagination(products) {
             pagination.empty();
             const totalPages = Math.ceil(products.length / productsPerPage);
+            pagination.append('<li><a href="#"><i class="fa-solid fa-arrow-left-long"></i></a></li>')
             for (let i = 1; i <= totalPages; i++) {
                 const liClass = (i === currentPage) ? 'active' : '';
                 pagination.append('<li class="' + liClass + '"><a href="#">' + i + '</a></li>');
             }
+            pagination.append('<li><a href="#"><i class="fa-solid fa-arrow-right-long"></i></a></li>')
         }
 
         // Function to fetch and filter products

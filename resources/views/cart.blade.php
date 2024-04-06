@@ -44,6 +44,10 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+
+        .vertical-center {
+            vertical-align: middle !important;
+        }
     </style>
 </head>
 
@@ -169,31 +173,33 @@
 <!-- Our Projects Page Start -->
 <div class="our-projects">
     <div class="container">
-        <!-- HTML -->
-        <div class="flex" style="width: 100%">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
-                        <table id="cartTable"
-                               class="min-w-full text-left text-sm font-light text-surface dark:text-white">
-                            <thead class="border-b border-neutral-200 font-medium dark:border-white/10">
-                            <tr>
-                                <th scope="col" class="px-6 py-4">#</th>
-                                <th scope="col" class="px-6 py-4">Product Name</th>
-                                <th scope="col" class="px-6 py-4">Price</th>
-                                <th scope="col" class="px-6 py-4">Quantity</th>
-                                <th scope="col" class="px-6 py-4">Total</th>
-                                <th scope="col" class="px-6 py-4">Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody id="cartBody">
-                            <!-- Cart items will be dynamically inserted here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table style="width: 100%;" class="table table-condensed" >
+            <thead class="bg-neutral-50 border-b border-neutral-200">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    Image
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    Name
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    Description
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    Quantity
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    Price
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    Actions
+                </th>
+            </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-neutral-200" id="cartContainer">
+
+            </tbody>
+        </table>
     </div>
 </div>
 <!-- Our Projects Page End -->
@@ -403,83 +409,63 @@
 <!-- Main Custom js file -->
 <script src="{{ asset('website/js/function.js') }}"></script>
 <script>
-    // JavaScript
-    document.addEventListener('DOMContentLoaded', function () {
-        const cartTable = document.getElementById('cartTable');
-        const cartBody = document.getElementById('cartBody');
 
-        // Load cart items from session storage
-        let cartItems = JSON.parse(sessionStorage.getItem('cart')) || {};
+    // Retrieve cart data from sessionStorage
+    const cartData = sessionStorage.getItem('cart');
 
-        // Function to update cart view
-        function updateCartView() {
-            // Clear previous cart view
-            cartBody.innerHTML = '';
+    // Parse cart data into an object
+    const cart = JSON.parse(cartData);
 
-            // Initialize total price
-            let totalPrice = 0;
+    // Reference to the element where you want to display the cart items
+    const cartContainer = document.getElementById('cartContainer');
 
-            // Iterate over cart items and populate the cart view
-            Object.entries(cartItems).forEach(([productId, quantity], index) => {
-                const product = getProductById(productId); // Assuming you have a function to fetch product details
-                if (product) {
-                    const {name, price} = product;
-                    const total = quantity * price;
-                    totalPrice += total;
+    function generateCartItemHTML(product) {
+        return `
+        <tr class="cart-item">
+            <td class="vertical-center"><img style="width: 200px; padding: 5px" src="${product.image}"></td>
+            <td class="vertical-center">${product.name}</td>
+            <td class="vertical-center">${product.description}</td>
+            <td class="vertical-center" style="width: 35px"><input type="number" value="1"></td>
+            <td class="vertical-center">$${product.customer_price}</td>
+            <td class="vertical-center"><button class="remove-from-cart btn btn-danger" data-id="${product.id}">Remove</button></td>
+        </tr>
+    `;
+    }
 
-                    // Create table row for each item
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                    <td class="whitespace-nowrap px-6 py-4 font-medium">${index + 1}</td>
-                    <td class="whitespace-nowrap px-6 py-4">${name}</td>
-                    <td class="whitespace-nowrap px-6 py-4">$${price.toFixed(2)}</td>
-                    <td class="whitespace-nowrap px-6 py-4">
-                        <input type="number" class="w-20 px-2 py-1 border rounded-md quantityInput" value="${quantity}">
-                    </td>
-                    <td class="whitespace-nowrap px-6 py-4">$${total.toFixed(2)}</td>
-                    <td class="whitespace-nowrap px-6 py-4">
-                        <button class="removeFromCart" data-id="${productId}">Remove</button>
-                    </td>
-                `;
 
-                    // Append row to cart body
-                    cartBody.appendChild(row);
-                }
+    // Function to render cart view
+    function renderCart() {
+        // Clear previous cart items
+        cartContainer.innerHTML = '';
+
+        // Check if cart is not empty
+        if (cart) {
+            // Iterate over each item in the cart and generate HTML
+            Object.values(cart).forEach(product => {
+                // Generate HTML for each cart item
+                const cartItemHTML = generateCartItemHTML(product);
+                // Append cart item HTML to cart container
+                cartContainer.innerHTML += cartItemHTML;
             });
-
-            // Update total price display
-            document.getElementById('totalPrice').innerText = `$${totalPrice.toFixed(2)}`;
-
-            // Update session storage with updated cart
-            sessionStorage.setItem('cart', JSON.stringify(cartItems));
         }
+    }
 
-        // Event listener for quantity input changes
-        cartBody.addEventListener('change', function (event) {
-            const target = event.target;
-            if (target.classList.contains('quantityInput')) {
-                const productId = target.parentNode.parentNode.querySelector('.removeFromCart').getAttribute('data-id');
-                const quantity = parseInt(target.value);
-                if (quantity >= 0) {
-                    cartItems[productId] = quantity;
-                    updateCartView();
-                }
-            }
-        });
+    // Call renderCart function to initially render the cart view
+    renderCart();
 
-        // Event listener for remove from cart button clicks
-        cartBody.addEventListener('click', function (event) {
-            const target = event.target;
-            if (target.classList.contains('removeFromCart')) {
-                const productId = target.getAttribute('data-id');
-                delete cartItems[productId];
-                updateCartView();
-            }
-        });
-
-        // Initial update of cart view
-        updateCartView();
+    // Event listener for remove from cart button
+    cartContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-from-cart')) {
+            const productId = event.target.dataset.id;
+            // Remove item from cart object
+            delete cart[productId];
+            // Update sessionStorage with updated cart
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            // Re-render cart view
+            renderCart();
+        }
     });
+
 
 </script>
 </body>
