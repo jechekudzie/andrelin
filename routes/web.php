@@ -6,6 +6,7 @@ use App\Http\Controllers\OrganisationTypeController;
 use App\Http\Controllers\OrganisationUsersController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,29 @@ Route::get('/', function () {
 Route::get('/shop', function () {
     $categories = Category::all();
     $shops = Shop::all();
+
+    //set up price ranges
+    // Retrieve min and max prices from the database
+    $minPrice = Product::min('customer_price');
+    $maxPrice = Product::max('customer_price');
+
+    // Round min price down to nearest 10
+    $roundedMinPrice = floor($minPrice / 10) * 10;
+
+    // Round max price up to nearest 10
+    $roundedMaxPrice = ceil($maxPrice / 10) * 10;
+
+    // Generate price ranges
+    $priceRanges = [];
+    for ($i = $roundedMinPrice; $i <= $roundedMaxPrice; $i += 10) {
+        $rangeStart = $i + 1;
+        $rangeEnd = $i + 1 + 9;
+        $priceRanges[] = "$$rangeStart - $$rangeEnd";
+    }
+
     return view('shop')
         ->with('shops', $shops)
+        ->with('priceRanges', $priceRanges)
         ->with('categories', $categories);
 });
 

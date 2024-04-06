@@ -187,8 +187,12 @@
                 </div>
 
                 <div class="form-group col-md-3">
-                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone" required>
-                    <div class="help-block with-errors"></div>
+                    <select class="form-control">
+                        <option>All</option>
+                        @foreach($priceRanges as $range)
+                            <option value="{{ $range }}">{{ $range }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </form>
@@ -445,7 +449,7 @@
                         </div>
 
                         <div class="project-content">
-                            <h2><a href="#">` + product.name + `</a></h2>
+                            <h2><a href="#">` + product.name + ` - $`+ product.customer_price +`</a></h2>
                             ` + product.description + `
                         </div>
 
