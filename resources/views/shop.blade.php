@@ -447,6 +447,8 @@
 
             productList.empty();
             productsForPage.forEach(function (product) {
+                //set quantity to product object as 1
+                product.quantity = 1;
                 productList.append(`
                     <div class="col-lg-3 col-md-6">
                     <!-- Project Item Start -->
