@@ -126,7 +126,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                         </div>
 
                         <div class="project-link">
-                            <a class="addToCart" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
+                            <a class="addToCart" id="linkme` + product.id + `" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
                         </div>
                         </div>
                         <!-- Project Item End -->
@@ -210,11 +210,14 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                     delete cart[productId];
                     // Update button text to "Add to Cart"
                     $(`button[data-id="${productId}"]`).text('Add to Cart');
+                    $('#linkme' + productId).css('background-color', '#89EA5F');
                 } else {
                     // If the product is not in the cart, add it
                     cart[productId] = product;
                     // Update button text to "Remove from Cart"
-                    $(`button[data-id="${productId}"]`).text('Remove from Cart');
+
+                    //change background colour to red
+                    $('#linkme' + productId).css('background-color', 'red');
                 }
                 // Update session storage with the updated cart
                 sessionStorage.setItem('cart', JSON.stringify(cart));
@@ -243,7 +246,6 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
 
             // Update cart count initially
             updateCartCount();
-
         });
     </script>
 @endpush
