@@ -9,7 +9,7 @@
 @section('content')
 
     <!-- Hero Section Start -->
-    <div class="hero parallaxie">
+    <div class="hero parallaxie" style="background-image: url('solar_banner1.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 4.31719px;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
@@ -201,6 +201,8 @@
         </div>
     </div>
     <!-- Our Services Section End -->
+
+
 
     <!-- Our Process Section Start -->
     <div class="our-process">

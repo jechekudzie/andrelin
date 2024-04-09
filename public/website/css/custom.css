@@ -42,17 +42,17 @@
 /************************************/
 
 :root {
-	--primary-color			: #163300;
+	--primary-color			: #2a3a6e;
 	--secondary-color		: #EFF1ED;
 	--text-color			: #888888;
 	--white-color			: #ffffff;
-	--accent-color			: #89EA5F;
+	--accent-color			: #d24343;
 	--overlay-color			: rgba(22, 51, 0, 0.65);
 	--error-color			: rgb(230, 87, 87);
 	--accent-font			: 'Rajdhani', sans-serif;
 	--default-font			: 'Rubik', sans-serif;
 }
-  
+
 
 /************************************/
 /**** 	   02. General css		 ****/
@@ -439,7 +439,7 @@ header.main-header .header-sticky{
 	padding: 25px 15px;
 	position: relative;
 	top: 0;
-	z-index: 100;	
+	z-index: 100;
 }
 
 header.main-header .header-sticky.hide{
@@ -447,7 +447,7 @@ header.main-header .header-sticky.hide{
 	transition: transform 0.3s ease-in-out;
 	padding: 15px 0;
 	border-radius: 0;
-	border-bottom: 1px solid #16330010;
+	border-bottom: 1px solid #2a3a6e10;
 }
 
 header.main-header .header-sticky.active{
@@ -456,7 +456,7 @@ header.main-header .header-sticky.active{
 	left: 0;
 	right: 0;
 	border-radius: 0;
-	border-bottom: 1px solid #16330010;
+	border-bottom: 1px solid #2a3a6e10;
     transform: translateY(0);
 	background: var(--white-color);
 }
@@ -2065,7 +2065,7 @@ footer.main-footer{
 	font-weight: 700;
 	font-family: var(--accent-font);
 	padding: 16px 0 14px 24px;
-	border-bottom: 1px solid #89EA5F30;
+	border-bottom: 1px solid #d2434330;
 	transition: all 0.3s ease-out;
 }
 
@@ -2918,7 +2918,7 @@ footer.main-footer{
 }
 
 .team-social-links h3{
-	font-size: 22px;	
+	font-size: 22px;
 }
 
 .team-social-links ul{
@@ -2976,7 +2976,7 @@ footer.main-footer{
 /******************************************/
 
 .page-404{
-	padding: 100px 0; 
+	padding: 100px 0;
 }
 
 .page-not-found-box{
@@ -3489,7 +3489,7 @@ footer.main-footer{
 }
 
 @media only screen and (max-width: 767px){
-   
+
     .btn-default{
         padding: 10px 22px;
     }
@@ -3824,23 +3824,23 @@ footer.main-footer{
 	.project-entry h1{
 		font-size: 24px;
 	}
-	
+
 	.project-entry h2{
 		font-size: 22px;
 	}
-	
+
 	.project-entry h3{
 		font-size: 20px;
 	}
-	
+
 	.project-entry h4{
 		font-size: 18px;
 	}
-	
+
 	.project-entry h5{
 		font-size: 16px;
 	}
-	
+
 	.project-entry h6{
 		font-size: 14px;
 	}

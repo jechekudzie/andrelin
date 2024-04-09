@@ -50,7 +50,7 @@
 <div class="preloader">
     <div class="loading-container">
         <div class="loading"></div>
-        <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+        <div id="loading-icon"><img src="{{asset('logo.png')}}" alt=""></div>
     </div>
 </div>
 <!-- Preloader End -->
@@ -69,8 +69,8 @@
                 <!-- Topbar Contact Information Start -->
                 <div class="topbar-contact-info">
                     <ul>
-                        <li><a href="#"><i class="fa-solid fa-envelope"></i> info@domain.com</a></li>
-                        <li><a href="#"><i class="fa-solid fa-phone"></i> +01 248 248 2481</a></li>
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i> info@andrelin.enterprise</a></li>
+                        <li><a href="#"><i class="fa-solid fa-phone"></i> 0242 307 362</a></li>
                     </ul>
                 </div>
                 <!-- Topbar Contact Information End -->
@@ -99,32 +99,26 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo Start -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.svg" alt="Logo">
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{asset('logo.png')}}" style="width: 65px" alt="Logo">
                 </a>
                 <!-- Logo End -->
                 <!-- Main Menu start -->
                 <div class="collapse navbar-collapse main-menu">
                     <ul class="navbar-nav mr-auto" id="menu">
-                        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item submenu"><a class="nav-link" href="#">About</a>
                             <ul>
-                                <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="project-single.html">Project Details</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Single</a></li>
-                                <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                <li class="nav-item"><a class="nav-link" href="faq.html">FAQs</a></li>
-                                <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">About Andreline</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Andreline Solar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Andreline Hardware</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Andreline Logistic</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('/shop')}}">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                         <li class="nav-item highlighted-menu"><a class="nav-link" href="{{ url('/cart') }}">Cart <span
                                     id="cartCount"></span> </a></li>
                     </ul>
@@ -181,7 +175,7 @@
 
                         <div class="footer-contact-info">
                             <h3>Support & Email</h3>
-                            <p>info@domainname.com</p>
+                            <p>info@andrelin.enteprise</p>
                         </div>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -196,7 +190,7 @@
 
                         <div class="footer-contact-info">
                             <h3>Customer Support</h3>
-                            <p>+01 547 547 5478</p>
+                            <p>+0242 307 3628</p>
                         </div>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -211,7 +205,7 @@
 
                         <div class="footer-contact-info">
                             <h3>Our Location</h3>
-                            <p>Street no, City, Country 123456</p>
+                            <p>64A Connaught Road, Avondale</p>
                         </div>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -233,8 +227,12 @@
                                 <figure>
                                     <img src="images/footer-logo.svg" alt="">
                                 </figure>
-                                <p>Green Energy is a long established fact that a reader will be distracted by the
-                                    readable content of a page when.</p>
+                                <p>
+                                    We are committed to being relevant and becoming a premier
+                                    enterprise to all our stakeholders through delivering result
+                                    oriented projects, competent training to our personnel and
+                                    sustainable green solutions.
+                                </p>
                             </div>
                             <!-- Footer About End -->
 
@@ -256,9 +254,12 @@
                                 <h2>Quick Links</h2>
                                 <ul>
                                     <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Blog</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#">About Andreline</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Andreline Solar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Andreline Hardware</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Andreline Logistic</a></li>
+                                    <li><a href="#">Shop</a></li>
                                     <li><a href="#">Contact Us</a></li>
                                 </ul>
                             </div>
