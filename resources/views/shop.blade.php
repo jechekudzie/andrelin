@@ -132,7 +132,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                             <h3 class="cost"><span class="glyphicon glyphicon-usd"></span></h3>
                             <div class="row">
                                 <div class="col-md-12 col-sm-12">
-                                    <input type="number" class="form-control" value="1" min="1" id="popQuantity"
+                                    <input type="number" class="form-control" min="1" id="popQuantity"
                                            name="quantity">
                                 </div>
                                 <!-- end col -->
