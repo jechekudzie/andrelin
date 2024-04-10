@@ -26,6 +26,7 @@ Route::get('/', function () {
 
 });
 
+
 Route::get('/shop', function () {
     $categories = Category::all();
     $shops = Shop::all();
@@ -60,8 +61,21 @@ Route::get('/cart', function () {
 });
 
 
-Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
+Route::post('/cart-data', [\App\Http\Controllers\SiteController::class, 'cartData']);
+Route::get('/payment-options', [\App\Http\Controllers\SiteController::class, 'paymentOptions'])->name('payment.options');
+Route::post('/cart-checkout/login', [\App\Http\Controllers\SiteController::class, 'login'])->name('cart-checkout.login');
+Route::post('/cart-checkout/register', [\App\Http\Controllers\SiteController::class, 'register'])->name('cart-checkout.register');
+Route::post('/cart-checkout/logout', [\App\Http\Controllers\SiteController::class, 'logout'])->name('cart-checkout.logout');
 
+//initiate-payment
+Route::post('/pay-now', [\App\Http\Controllers\SiteController::class, 'initiatePayment'])->name('initiate-payment');
+Route::get('/paynow/return/{reference}', [\App\Http\Controllers\SiteController::class, 'checkPayment'])->name('check-payment');
+Route::get('/paynow/notify/{payment}', [\App\Http\Controllers\SiteController::class, 'notifyPayment'])->name('notify-payment');
+
+
+
+
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
 //Display all organisation types via API
 Route::get('/admin/organisation-types', [OrganisationTypeController::class, 'index'])->name('admin.organisation-types.index');
 //Create new organisation types directly

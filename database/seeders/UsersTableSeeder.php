@@ -25,14 +25,8 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Nigel Jeche',
                 'email' => 'jechekudzie@gmail.com',
                 'password' => 'password@1',
-                'organisation_id' => 4,
+                'organisation_id' => 1,
             ],
-           /* [
-                'name' => 'Dr Shylock Muyengwa',
-                'email' => 'shylock.muyengwa@resourceafrica.net',
-                'password' => 'password@1',
-                'organisation_id' => 2,
-            ],*/
         ];
 
         foreach ($users as $userData) {

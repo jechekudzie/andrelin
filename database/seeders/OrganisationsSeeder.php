@@ -73,7 +73,15 @@ class OrganisationsSeeder extends Seeder
                 'slug' => 'avondale-logistics-branch',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ]
+            ],
+            [
+            'name' => 'Customer',
+            'organisation_type_id' => 4,
+            'organisation_id' => 1,
+            'slug' => 'customer',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]
         ];
         foreach ($organisations as $organisation) {
 
@@ -84,6 +92,19 @@ class OrganisationsSeeder extends Seeder
                 'name' => 'admin',
                 'guard_name' => 'web',
             ]);
+
+            if ($newOrganisation->name === 'Customer' && $newOrganisation->organisation_type_id === 4) {
+                // Create customer role and dealer role
+                $role = $newOrganisation->organisationRoles()->create([
+                    'name' => 'customer',
+                    'guard_name' => 'web',
+                ]);
+                $role = $newOrganisation->organisationRoles()->create([
+                    'name' => 'dealer',
+                    'guard_name' => 'web',
+                ]);
+
+            }
 
             // Check if the organisation name is similar to the ones that should have all permissions
             if (Str::lower($newOrganisation->name) === Str::lower("Andrelin Enterprises")) {
