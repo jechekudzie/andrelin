@@ -1,5 +1,29 @@
 @extends('layouts.website');
 
+@push('head ')
+    <style>
+        .product_view .modal-dialog {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .pre-cost {
+            text-decoration: line-through;
+            color: #a5a5a5;
+        }
+
+        .space-ten {
+            padding: 10px 0;
+        }
+
+        #popupImage {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+@endpush
+
 @section('content')
 
     <!-- Page Header Start -->
@@ -90,6 +114,41 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
     </div>
     <!-- Our Projects Page End -->
 
+    <div class="modal modal-lg fade product_view" id="product_view">
+        <div class="modal-dialog" style="width: 60%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title"></h3>
+                    <a href="#" data-dismiss="modal" class="class pull-right"><span
+                            class="glyphicon glyphicon-remove">X</span></a>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="padding: 5px">
+                        <div style="border-radius: 10px;" class="col-md-6 product_img" id="popupImage">
+                        </div>
+                        <div class="col-md-6 product_content">
+                            <h4>Product Id: <span></span></h4>
+                            <p class="descripto"></p>
+                            <h3 class="cost"><span class="glyphicon glyphicon-usd"></span></h3>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="number" class="form-control" value="1" name="quantity">
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <div class="space-ten"></div>
+                            <div class="btn-ground row" style="padding: 10px">
+                                <button id="popAddToCart" type="button" class="btn btn-primary p-2"><span
+                                        class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('scripts')
@@ -124,9 +183,9 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                             <h2><a href="#">` + product.name + `</a></h2>
                             $` + product.customer_price + `
                         </div>
-
                         <div class="project-link">
-                            <a class="addToCart" id="linkme` + product.id + `" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
+                            <a style="margin: 4px; height: 35px; width: 35px" class="quickView" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
+                            <a style="margin: 4px; height: 35px; width: 35px" class="addToCart" id="linkme` + product.id + `" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
                         </div>
                         </div>
                         <!-- Project Item End -->
@@ -221,6 +280,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                 }
                 // Update session storage with the updated cart
                 sessionStorage.setItem('cart', JSON.stringify(cart));
+
                 // Update cart count
                 updateCartCount();
             }
@@ -228,14 +288,34 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
             // Add event listener to handle "Add to Cart" button clicks
             $(document).on('click', '.addToCart', function (event) {
                 event.preventDefault();
-
-                console.log($(this).data('product'));
-
                 const product = $(this).data('product');
                 if (product) {
                     handleCartClick(product);
                 }
             });
+
+            // Event listener for Quick View button clicks
+            $(document).on('click', '.quickView', function (event) {
+                event.preventDefault();
+                const product = $(this).data('product');
+                if (product) {
+                    // Populate the modal with the selected product's details
+                    populateModal(product);
+                    // Show the modal
+                    $('#product_view').modal('show');
+                }
+            });
+
+            // Function to populate the modal with product details
+            function populateModal(product) {
+                // Populate the modal content with the selected product's details
+                $('#product_view .modal-title').text(product.name);
+                $('#product_view .product_img').css('background-image', 'url("' + product.image + '")');
+                $('#product_view .product_content h4 span').text(product.id);
+                $('#product_view .descripto').text(product.description);
+                $('#product_view .glyphicon-usd').text(product.customer_price);
+            }
+
 
             // Function to update cart count
             function updateCartCount() {
