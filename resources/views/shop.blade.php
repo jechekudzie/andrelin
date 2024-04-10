@@ -335,6 +335,8 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
 
             // Function to populate the modal with product details
             function populateModal(product) {
+                productTemp = product;
+
                 // Populate the modal content with the selected product's details
                 $('#product_view .modal-title').text(product.name);
                 $('#product_view .product_img').css('background-image', 'url("' + product.image + '")');
