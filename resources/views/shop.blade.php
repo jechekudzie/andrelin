@@ -132,13 +132,15 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                             <h3 class="cost"><span class="glyphicon glyphicon-usd"></span></h3>
                             <div class="row">
                                 <div class="col-md-12 col-sm-12">
-                                    <input type="number" class="form-control" value="1" name="quantity">
+                                    <input type="number" class="form-control" value="1" min="1" id="popQuantity"
+                                           name="quantity">
                                 </div>
                                 <!-- end col -->
                             </div>
                             <div class="space-ten"></div>
                             <div class="btn-ground row" style="padding: 10px">
-                                <button id="popAddToCart" type="button" class="btn btn-primary p-2"><span
+                                <button id="popAddToCart" type="button" class="btn p-2"
+                                        style="background-color: green; color: white"><span
                                         class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
                                 </button>
                             </div>
@@ -158,6 +160,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
             const pagination = $('#pagination');
             const productsPerPage = 8;
             let currentPage = 1;
+            let productTemp = {};
 
             // Function to render products for a specific page
             function renderProductsForPage(products, page) {
@@ -306,16 +309,47 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                 }
             });
 
+            //pop quantity on change listener
+            $('#popQuantity').on('change', function (event) {
+                handleQuantityChange(event, productTemp.id);
+            });
+
+            //pop add to cart on click listener
+            $('#popAddToCart').on('click', function (event) {
+                //if already in cart remove from cart
+                if ($(this).text() === 'Remove from Cart') {
+                    handleCartClick(productTemp);
+                    $('#product_view').modal('hide');
+                    return;
+                }
+                //set quantity to product object as 1
+                productTemp.quantity = $('#popQuantity').val();
+                handleCartClick(productTemp);
+                $('#product_view').modal('hide');
+            });
+
             // Function to populate the modal with product details
             function populateModal(product) {
+                productTemp = product;
                 // Populate the modal content with the selected product's details
                 $('#product_view .modal-title').text(product.name);
                 $('#product_view .product_img').css('background-image', 'url("' + product.image + '")');
                 $('#product_view .product_content h4 span').text(product.id);
                 $('#product_view .descripto').text(product.description);
                 $('#product_view .glyphicon-usd').text(product.customer_price);
-            }
 
+                //if producit is in cart change button text to remove
+                const cart = JSON.parse(sessionStorage.getItem('cart')) || {}
+                if (cart[product.id]) {
+                    $('#popAddToCart').text('Remove from Cart');
+                    //set background color to red
+                    $('#popAddToCart').css('background-color', 'red');
+                } else {
+                    $('#popAddToCart').text('Add to Cart');
+                    //set background color to green
+                    $('#popAddToCart').css('background-color', 'green');
+                }
+            }
 
             // Function to update cart count
             function updateCartCount() {
