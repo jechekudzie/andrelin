@@ -147,7 +147,7 @@
             <td class="vertical-center"><img class="img-thumbnail" style="width: 200px; padding: 5px" src="${product.image}"></td>
             <td class="vertical-center">${product.name}</td>
             <td class="vertical-center">${product.description}</td>
-            <td class="vertical-center" style="width: 35px"><input type="number" value="${product.quantity}" onchange="handleQuantityChange(event, '${product.id}')"></td>
+            <td class="vertical-center" style="width: 35px"><input class="form-control" type="number" value="${product.quantity}" onchange="handleQuantityChange(event, '${product.id}')"></td>
             <td class="vertical-center">$${product.customer_price}</td>
             <td class="vertical-center">$${(product.quantity * parseFloat(product.customer_price)).toFixed(2)}</td>
             <td class="vertical-center" style="text-align: right"><button class="remove-from-cart btn btn-danger" data-id="${product.id}">Remove</button></td>
