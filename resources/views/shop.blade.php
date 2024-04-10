@@ -119,7 +119,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title"></h3>
-                    <a href="#" data-dismiss="modal" class="class pull-right"><span
+                    <a href="#" id="popDismiss" data-dismiss="modal" class="class pull-right"><span
                             class="glyphicon glyphicon-remove">X</span></a>
                 </div>
                 <div class="modal-body">
@@ -187,7 +187,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                             $` + product.customer_price + `
                         </div>
                         <div class="project-link">
-                            <a style="margin: 4px; height: 35px; width: 35px" class="quickView" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
+                            <a style="margin: 4px; height: 35px; width: 35px" class="quickView" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="{{ asset('eye-3-xxl.png') }}" alt=""></a>
                             <a style="margin: 4px; height: 35px; width: 35px" class="addToCart" id="linkme` + product.id + `" data-product='${JSON.stringify(product)}' data-id="` + product.id + `"href="#"><img style="width: 50%" src="website/images/add-to-cart.png" alt=""></a>
                         </div>
                         </div>
@@ -325,6 +325,11 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                 //set quantity to product object as 1
                 productTemp.quantity = $('#popQuantity').val();
                 handleCartClick(productTemp);
+                $('#product_view').modal('hide');
+            });
+
+            //popDismiss dismisses modal
+            $('#popDismiss').on('click', function (event) {
                 $('#product_view').modal('hide');
             });
 
