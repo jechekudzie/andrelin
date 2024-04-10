@@ -18,6 +18,7 @@ class OrganisationTypeRelationshipSeeder extends Seeder
         //
         $relationships = [
             ['organisation_type_id' => 1, 'child_id' => 2, 'notes' => null, 'created_at' => Carbon::parse('2024-01-28 08:01:22'), 'updated_at' => Carbon::parse('2024-01-28 08:01:22')],
+            ['organisation_type_id' => 1, 'child_id' => 4, 'notes' => null, 'created_at' => Carbon::parse('2024-01-28 08:01:22'), 'updated_at' => Carbon::parse('2024-01-28 08:01:22')],
             ['organisation_type_id' => 2, 'child_id' => 3, 'notes' => null, 'created_at' => Carbon::parse('2024-01-28 08:01:32'), 'updated_at' => Carbon::parse('2024-01-28 08:01:32')],
         ];
 

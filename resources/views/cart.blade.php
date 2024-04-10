@@ -62,7 +62,8 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                         Total
                     </th>
-                    <th style="text-align: right" class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                    <th style="text-align: right"
+                        class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                         Actions
                     </th>
                 </tr>
@@ -78,8 +79,14 @@
                 <div style="font-size: 16pt; font-weight: bold; margin-top: 5px">
                     Grand Total: <span id="grandTotal">$0.00</span>
                 </div>
+
                 <div style="margin-top: 15px">
-                    <button class="btn btn-success">Proceed to Payment</button>
+                    <form method="post" action="{{url('/cart-data')}}">
+                        @csrf
+                        <input type="hidden" id="cartData" name="cartData">
+                        <button type="submit" class="btn btn-success">Proceed to Payment</button>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -173,10 +180,15 @@
 
             // Update the totals
             updateTotals();
+            const cartData = sessionStorage.getItem('cart');
+            $('#cartData').val(cartData);
+
+
         }
 
         // Call renderCart function to initially render the cart view
         renderCart();
+
 
     </script>
 

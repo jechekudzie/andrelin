@@ -93,6 +93,12 @@ class User extends Authenticatable
     }
 
 
+    //user has one customer
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
+
 
     public function getSlugOptions() : SlugOptions
     {

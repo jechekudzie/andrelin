@@ -20,6 +20,7 @@ class OrganisationTypesSeeder extends Seeder
             ['name' => 'Holdings Company', 'slug' => 'holdings-company', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['name' => 'Subsidiary', 'slug' => 'subsidiary', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['name' => 'Branch', 'slug' => 'branch', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Customer', 'slug' => 'customer', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ];
 
         foreach ($organisationTypes as $type) {
