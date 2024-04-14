@@ -229,10 +229,9 @@
                             </a>
                             <div class="parent-wrapper label-1">
                                 <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-CRM">
-                                    <li class="collapsed-nav-item-title d-none">CRM
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle=""
-                                                            aria-expanded="false">
+                                    <li class="collapsed-nav-item-title d-none">CRM</li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Request::routeIs('customers.*') ? 'active' : '' }}" href="{{route('customers.index')}}" data-bs-toggle="" aria-expanded="false">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text">Customers</span>
                                             </div>

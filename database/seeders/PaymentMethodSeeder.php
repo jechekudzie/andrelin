@@ -23,5 +23,9 @@ class PaymentMethodSeeder extends Seeder
             ['name' => 'Zipit USD', 'description' => 'Payment made via Zipit USD'],
             ['name' => 'Zipit ZIG', 'description' => 'Payment made via Zipit ZIG'],
         ];
+
+        foreach ($paymentMethods as $paymentMethod) {
+            \App\Models\PaymentMethod::create($paymentMethod);
+        }
     }
 }

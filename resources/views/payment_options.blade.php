@@ -156,7 +156,12 @@
                             <div class="card-body">
                                 <h5 class="card-title">Welcome back, {{ Auth::user()->name }}!</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ Auth::user()->email }}</h6>
+                                <h6 style="font-weight: bold;" class="card-subtitle mb-2 text-black"><span
+                                        class="btn btn-warning btn-sm">{{Auth::user()->roles->first()->name ?? 'Default Name'}}</span>
+                                </h6>
+
                                 <p class="card-text">Your details are already filled in for your convenience. Feel free
+
                                     to review your order and proceed with the checkout.</p>
                                 <a href="{{ route('cart-checkout.logout') }}" class="card-link"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -191,14 +196,17 @@
                         </p>
                     @endif
 
+
                     <button type="button" class="btn btn-info btn-sm btn-block" data-bs-toggle="modal"
                             data-bs-target="#cartModal">
                         <i class="fa fa-shopping-cart"></i>
                         View Cart Items
                     </button>
-                    <button type="submit" class="btn btn-warning btn-sm btn-block">Generate Quote</button>
-                    <button type="submit" class="btn btn-danger btn-sm btn-block">Place Order</button>
-                </div>
+                    @if(auth()->check() && auth()->user())
+                        <button type="submit" class="btn btn-warning btn-sm btn-block">Generate Quote</button>
+                        <button type="submit" class="btn btn-danger btn-sm btn-block">Place Order</button>
+                         </div>
+
 
                 <!-- Submit Button -->
                 <div class="order-summary mt-4 mb-4">
@@ -210,6 +218,8 @@
                     </form>
 
                 </div>
+
+                @endif
             </div>
         </div>
     </div>

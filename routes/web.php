@@ -22,7 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return redirect('/shop');
+    //return view('welcome');
 
 });
 
@@ -71,8 +73,6 @@ Route::post('/cart-checkout/logout', [\App\Http\Controllers\SiteController::clas
 Route::post('/pay-now', [\App\Http\Controllers\SiteController::class, 'initiatePayment'])->name('initiate-payment');
 Route::get('/paynow/return/{reference}', [\App\Http\Controllers\SiteController::class, 'checkPayment'])->name('check-payment');
 Route::get('/paynow/notify/{payment}', [\App\Http\Controllers\SiteController::class, 'notifyPayment'])->name('notify-payment');
-
-
 
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
@@ -129,7 +129,6 @@ Route::get('admin/product-categories/{category}/edit', [\App\Http\Controllers\Ca
 Route::patch('admin/product-categories/{category}/update', [\App\Http\Controllers\CategoryController::class, 'update'])->name('product-categories.update');
 Route::delete('admin/product-categories/{category}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('product-categories.destroy');
 
-
 //product routes
 Route::get('admin/products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
 Route::get('admin/products/create', [\App\Http\Controllers\ProductController::class, 'create'])->name('products.create');
@@ -165,6 +164,15 @@ Route::delete('admin/stock/{stock}', [\App\Http\Controllers\InventoryBatchContro
 Route::get('admin/stock/{product}/track', [\App\Http\Controllers\StockTrackingController::class, 'index'])->name('stock.track.index');
 Route::post('admin/stock/{product}/track/store', [\App\Http\Controllers\StockTrackingController::class, 'store'])->name('stock.track.store');
 Route::patch('admin/stock/{product}/track/update', [\App\Http\Controllers\StockTrackingController::class, 'update'])->name('stock.track.update');
+
+
+
+//customers
+Route::get('admin/customers', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customers.index');
+Route::post('admin/customers/store', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customers.store');
+Route::get('admin/customers/{customer}/edit', [\App\Http\Controllers\CustomerController::class, 'edit'])->name('customers.edit');
+Route::patch('admin/customers/{customer}/update', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customers.update');
+Route::delete('admin/customers/{customer}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customers.destroy');
 
 
 Route::get('/dashboard', function () {

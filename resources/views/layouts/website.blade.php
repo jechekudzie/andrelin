@@ -106,7 +106,7 @@
                 <!-- Main Menu start -->
                 <div class="collapse navbar-collapse main-menu">
                     <ul class="navbar-nav mr-auto" id="menu">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                         <li class="nav-item submenu"><a class="nav-link" href="#">About</a>
                             <ul>
                                 <li class="nav-item"><a class="nav-link" href="#">About Andreline</a></li>
