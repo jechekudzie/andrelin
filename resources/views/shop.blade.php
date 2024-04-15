@@ -21,6 +21,12 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+
+        .project-item {
+            background-color: #8080801c;
+            /* additional styles */
+        }
+
     </style>
 @endpush
 
@@ -95,7 +101,7 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
     </div>
 
     <!-- Our Projects Page Start -->
-    <div class="our-projects" style="padding: 0px 0px 50px">
+    <div class="our-projects" style="background-color:#8080801c ;padding: 0px 0px 50px">
         <div class="container">
             <div class="row" id="productList">
             </div>
@@ -123,10 +129,10 @@ background-size: cover; background-repeat: no-repeat; background-attachment: fix
                             class="glyphicon glyphicon-remove">X</span></a>
                 </div>
                 <div class="modal-body">
-                    <div class="row" style="padding: 5px">
+                    <div class="row" style="padding: 5px;">
                         <div style="border-radius: 10px;" class="col-md-6 product_img" id="popupImage">
                         </div>
-                        <div class="col-md-6 product_content">
+                        <div style="background-color: grey" class="col-md-6 product_content">
                             <h4>Product Id: <span></span></h4>
                             <p class="descripto"></p>
                             <h3 class="cost"><span class="glyphicon glyphicon-usd"></span></h3>

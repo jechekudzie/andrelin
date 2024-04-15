@@ -190,8 +190,8 @@ class SiteController extends Controller
         $payNow = new Paynow(
             '5865',
             '23962222-9610-4f7c-bbd5-7e12f19cdfc6',
-            'http://localhost:8000/paynow/return/' . $reference,
-            'http://localhost:8000/paynow/return/' . $reference,
+            'https://review.andrelin.enterprises/paynow/return/' . $reference,
+            'https://review.andrelin.enterprises/paynow/return/' . $reference,
         );
 
         return $payNow;

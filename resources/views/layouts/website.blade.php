@@ -80,10 +80,10 @@
                 <!-- Topbar Social Links Start -->
                 <div class="header-social-links">
                     <ul>
-                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a style="color: white;" href="https://www.facebook.com/andrelin.zim" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a style="color: white;" href="https://twitter.com/AndrelinEnterp1" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a style="color: white;" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        <li><a style="color: white;" href="#"><i class="fa-brands fa-instagram"></i></a></li>
                     </ul>
                 </div>
                 <!-- Topbar Social Links End -->
@@ -94,7 +94,7 @@
 <!-- Topbar Section End -->
 
 <!-- Header Start -->
-<header class="main-header">
+<header class="main-header" style="height: 100px;">
     <div class="header-sticky">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -107,19 +107,12 @@
                 <div class="collapse navbar-collapse main-menu">
                     <ul class="navbar-nav mr-auto" id="menu">
                         <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                        <li class="nav-item submenu"><a class="nav-link" href="#">About</a>
-                            <ul>
-                                <li class="nav-item"><a class="nav-link" href="#">About Andreline</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Andreline Solar</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Andreline Hardware</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Andreline Logistic</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">About Andrelin Enterprises</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/shop')}}">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                        <li class="nav-item highlighted-menu"><a class="nav-link" href="{{ url('/cart') }}">Cart <span
+                        <li class="nav-item highlighted-menu"><a style="color: white;" class="nav-link" href="{{ url('/cart') }}">Cart <span
                                     id="cartCount"></span> </a></li>
                     </ul>
                 </div>
@@ -199,13 +192,9 @@
                 <div class="col-lg-4">
                     <!-- Footer Contact Box Start -->
                     <div class="footer-contact-box wow fadeInUp" data-wow-delay="0.75s">
-                        <div class="contact-icon-box">
-                            <img src="images/icon-location.svg" alt="">
-                        </div>
-
                         <div class="footer-contact-info">
                             <h3>Our Location</h3>
-                            <p>64A Connaught Road, Avondale</p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.892357329988!2d31.030370775830864!3d-17.796755383161862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a5fa2b62af71%3A0x23e0c485a346e2a0!2sAndrelin%20Solar%20-%20Avondale!5e0!3m2!1sen!2szw!4v1713155470854!5m2!1sen!2szw" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -239,10 +228,10 @@
                             <!-- Footer Social Link Start -->
                             <div class="footer-social-links">
                                 <ul>
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a style="color: white;" href="https://www.facebook.com/andrelin.zim" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a style="color: white;" href="https://twitter.com/AndrelinEnterp1" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a style="color: white;" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    <li><a style="color: white;" href="#"><i class="fa-brands fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                             <!-- Footer Social Link End -->
@@ -254,12 +243,9 @@
                                 <h2>Quick Links</h2>
                                 <ul>
                                     <li><a href="#">Home</a></li>
-
-                                    <li class="nav-item"><a class="nav-link" href="#">About Andreline</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Andreline Solar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Andreline Hardware</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Andreline Logistic</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">About Andrelin Enterprises</a></li>
                                     <li><a href="#">Shop</a></li>
+                                    <li><a href="#">Projects</a></li>
                                     <li><a href="#">Contact Us</a></li>
                                 </ul>
                             </div>
@@ -271,11 +257,11 @@
                             <div class="footer-links">
                                 <h2>Services</h2>
                                 <ul>
+                                    <li><a href="#">Site Assessments</a></li>
                                     <li><a href="#">Consultancy</a></li>
-                                    <li><a href="#">Solar System</a></li>
-                                    <li><a href="#">Solar Panel</a></li>
-                                    <li><a href="#">Style Guide</a></li>
-                                    <li><a href="#">License</a></li>
+                                    <li><a href="#">Installations</a></li>
+                                    <li><a href="#">System Design & Re-Work</a></li>
+                                    <li><a href="#">Maintenance</a></li>
                                 </ul>
                             </div>
                             <!-- Footer Links End -->
@@ -300,12 +286,12 @@
                 <!-- Mega Footer End -->
 
                 <!-- Copyright Footer Start -->
-                <div class="footer-copyright">
+                <div style="background-color: white; color: black;" class="footer-copyright">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Footer Copyright Content Start -->
                             <div class="footer-copyright-text">
-                                <p>Copyright © 2024 Solor. All rights reserved.</p>
+                                <p>Copyright © {{date('Y')}} Andrelin Enterprises.</p>
                             </div>
                             <!-- Footer Copyright Content End -->
                         </div>
@@ -347,6 +333,20 @@
 <script src="{{ asset('website/js/wow.js') }}"></script>
 <!-- Main Custom js file -->
 <script src="{{ asset('website/js/function.js') }}"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/66163f121ec1082f04e0bcfb/1hr3ecor7';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 @stack('scripts')
 </body>
 </html>

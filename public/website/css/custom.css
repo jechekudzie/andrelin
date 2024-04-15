@@ -418,6 +418,7 @@ a:focus{
 	background: var(--accent-color);
 	color: var(--primary-color);
 	transition: all 0.2s ease-in-out;
+
 }
 
 .header-social-links ul li a:hover{
@@ -428,6 +429,7 @@ a:focus{
 header.main-header{
 	position: relative;
 	max-width: 1270px;
+    max-height: 80px;
 	margin: 0 auto;
 	background: var(--white-color);
 	border-radius: 30px;
@@ -436,10 +438,11 @@ header.main-header{
 }
 
 header.main-header .header-sticky{
-	padding: 25px 15px;
+	padding: 10px 15px;
 	position: relative;
 	top: 0;
 	z-index: 100;
+
 }
 
 header.main-header .header-sticky.hide{
