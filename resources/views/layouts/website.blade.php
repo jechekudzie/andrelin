@@ -80,8 +80,10 @@
                 <!-- Topbar Social Links Start -->
                 <div class="header-social-links">
                     <ul>
-                        <li><a style="color: white;" href="https://www.facebook.com/andrelin.zim" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a style="color: white;" href="https://twitter.com/AndrelinEnterp1" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a style="color: white;" href="https://www.facebook.com/andrelin.zim" target="_blank"><i
+                                    class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a style="color: white;" href="https://twitter.com/AndrelinEnterp1" target="_blank"><i
+                                    class="fab fa-twitter"></i></a></li>
                         <li><a style="color: white;" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
                         <li><a style="color: white;" href="#"><i class="fa-brands fa-instagram"></i></a></li>
                     </ul>
@@ -112,7 +114,8 @@
                         <li class="nav-item"><a class="nav-link" href="{{url('/shop')}}">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                        <li class="nav-item highlighted-menu"><a style="color: white;" class="nav-link" href="{{ url('/cart') }}">Cart <span
+                        <li class="nav-item highlighted-menu"><a style="color: white;" class="nav-link"
+                                                                 href="{{ url('/cart') }}">Cart <span
                                     id="cartCount"></span> </a></li>
                     </ul>
                 </div>
@@ -194,7 +197,10 @@
                     <div class="footer-contact-box wow fadeInUp" data-wow-delay="0.75s">
                         <div class="footer-contact-info">
                             <h3>Our Location</h3>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.892357329988!2d31.030370775830864!3d-17.796755383161862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a5fa2b62af71%3A0x23e0c485a346e2a0!2sAndrelin%20Solar%20-%20Avondale!5e0!3m2!1sen!2szw!4v1713155470854!5m2!1sen!2szw" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.892357329988!2d31.030370775830864!3d-17.796755383161862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a5fa2b62af71%3A0x23e0c485a346e2a0!2sAndrelin%20Solar%20-%20Avondale!5e0!3m2!1sen!2szw!4v1713155470854!5m2!1sen!2szw"
+                                width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -228,10 +234,14 @@
                             <!-- Footer Social Link Start -->
                             <div class="footer-social-links">
                                 <ul>
-                                    <li><a style="color: white;" href="https://www.facebook.com/andrelin.zim" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a style="color: white;" href="https://twitter.com/AndrelinEnterp1" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a style="color: white;" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a style="color: white;" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a style="color: white;" href="https://www.facebook.com/andrelin.zim"
+                                           target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a style="color: white;" href="https://twitter.com/AndrelinEnterp1"
+                                           target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a style="color: white;" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    </li>
+                                    <li><a style="color: white;" href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- Footer Social Link End -->
@@ -243,7 +253,8 @@
                                 <h2>Quick Links</h2>
                                 <ul>
                                     <li><a href="#">Home</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">About Andrelin Enterprises</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">About Andrelin Enterprises</a>
+                                    </li>
                                     <li><a href="#">Shop</a></li>
                                     <li><a href="#">Projects</a></li>
                                     <li><a href="#">Contact Us</a></li>
@@ -336,14 +347,14 @@
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/66163f121ec1082f04e0bcfb/1hr3ecor7';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/66163f121ec1082f04e0bcfb/1hr3ecor7';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
     })();
 </script>
 <!--End of Tawk.to Script-->

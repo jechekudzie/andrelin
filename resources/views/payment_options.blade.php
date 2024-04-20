@@ -139,7 +139,7 @@
                                 <div class="form-group col-md-6 mb-3">
                                     <select class="form-select" name="customer_type" id="customer_type" required="">
                                         <option value="">Select Customer Type</option>
-                                        <option value="customer">Customer</option>
+                                        <option value="customer">General Customer</option>
                                         <option value="dealer">Installer</option>
                                     </select>
                                 </div>

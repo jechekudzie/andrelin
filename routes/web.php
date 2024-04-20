@@ -23,10 +23,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return redirect('/shop');
-    //return view('welcome');
+    $cart = \Illuminate\Support\Facades\Session::get('cart');
+    if(empty($cart)) {
+        return response()->json(['status' => 'empty', 'message' => 'Your cart is empty.']);
+    } else {
+        return response()->json(['status' => 'success', 'cart' => $cart]);
+    }
 
 });
+
+//organisation types
+Route::post('/cart/update', [\App\Http\Controllers\WebsiteController::class, 'update'])->name('cart.update');
+Route::get('/cart/data',[\App\Http\Controllers\WebsiteController::class, 'getCartData'])->name('cart.data');
+
+
+
+Route::get('/website/index', [\App\Http\Controllers\WebsiteController::class, 'index']);
+Route::get('/website/shop', [\App\Http\Controllers\WebsiteController::class, 'shop']);
+Route::get('/website/cart', [\App\Http\Controllers\WebsiteController::class, 'cart']);
+Route::get('/website/contact', [\App\Http\Controllers\WebsiteController::class, 'contact']);
+
 
 
 Route::get('/shop', function () {
@@ -136,6 +152,16 @@ Route::post('admin/products/store', [\App\Http\Controllers\ProductController::cl
 Route::get('admin/products/{product}/edit', [\App\Http\Controllers\ProductController::class, 'edit'])->name('products.edit');
 Route::patch('admin/products/{product}/update', [\App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
 Route::delete('admin/products/{product}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('products.destroy');
+
+//unit measurements
+Route::get('admin/unit-measurements', [\App\Http\Controllers\UnitMeasurementController::class, 'index'])->name('unit-measurements.index');
+Route::post('admin/unit-measurements/store', [\App\Http\Controllers\UnitMeasurementController::class, 'store'])->name('unit-measurements.store');
+Route::get('admin/unit-measurements/{unitMeasurement}/edit', [\App\Http\Controllers\UnitMeasurementController::class, 'edit'])->name('unit-measurements.edit');
+Route::patch('admin/unit-measurements/{unitMeasurement}/update', [\App\Http\Controllers\UnitMeasurementController::class, 'update'])->name('unit-measurements.update');
+Route::delete('admin/unit-measurements/{unitMeasurement}', [\App\Http\Controllers\UnitMeasurementController::class, 'destroy'])->name('unit-measurements.destroy');
+
+
+
 
 //suppliers routes
 Route::get('admin/suppliers', [\App\Http\Controllers\SupplierController::class, 'index'])->name('suppliers.index');

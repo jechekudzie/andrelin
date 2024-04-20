@@ -14,11 +14,17 @@ class Product extends Model
     protected $guarded = [];
 
 
+    public static function search($search)
+    {
+        return empty($search) ? static::query()
+            : static::query()->where('name', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-
     public function supplierProductLines()
     {
         // Assuming 'product_id' is the foreign key in the 'supplier_product_lines' table
@@ -56,6 +62,12 @@ class Product extends Model
     {
         return $this->hasMany(Option::class);
     }
+
+    public function productUnitMeasurements()
+    {
+        return $this->hasMany(ProductUnitMeasurement::class);
+    }
+
 
     public function getSlugOptions(): SlugOptions
     {

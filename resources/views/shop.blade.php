@@ -32,6 +32,8 @@
 
 @section('content')
 
+
+
     <!-- Page Header Start -->
 
     {{--<div class="page-header background-image: url(&quot;https://placehold.co/1920/1080/red?text=Andrelin&quot;); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 16.2844px;">--}}
