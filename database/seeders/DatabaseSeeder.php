@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             ShopTableSeeder::class,
             UsersTableSeeder::class,
-            /*ProductSeeder::class,*/
+            ProductSeeder::class,
             PaymentMethodSeeder::class,
             /*OrganisationAdminSeeder::class,*/
         ]);

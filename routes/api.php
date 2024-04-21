@@ -19,16 +19,16 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/admin/organisation-types', [ApiController::class, 'fetchTemplate'])->name('admin.organisation-types.index');
+Route::get('/admin/organisation-types', [ApiController::class, 'fetchTemplate']);
 //organisations
-Route::get('/admin/organisations', [ApiController::class, 'fetchOrganisationInstances'])->name('admin.organisations.index');
+Route::get('/admin/organisations', [ApiController::class, 'fetchOrganisationInstances']);
 //organisation
-Route::get('/admin/organisations/{organisation}/edit', [ApiController::class, 'fetchOrganisation'])->name('admin.organisations.edit');
+Route::get('/admin/organisations/{organisation}/edit', [ApiController::class, 'fetchOrganisation']);
 
 
 
 //shop routes to get products and filter products
-Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+Route::get('/products', [ProductsController::class, 'index']);
 //Route::get('/products/{product}
 
 

@@ -1,11 +1,12 @@
 @extends('layouts.web')
 
+@push('styles')
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+@endpush
 @section('content')
-    <!--
-      ============================
-      PageTitle #9 Section
-      ============================
-      -->
+
     <section class="page-title page-title-9" id="page-title">
         <div class="page-title-wrap bg-overlay bg-overlay-dark-2">
             <div class="bg-section"><img src="{{asset('web/assets/images/page-titles/9.jpg')}}" alt="Background"/></div>
@@ -37,3 +38,7 @@
 
 
 @endsection
+@push('scripts')
+
+
+@endpush

@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Providers;
-use App\Models\Organisation;
+use App\Livewire\ProductsList;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Route;
-
 use Livewire\Livewire;
-use App\Http\Livewire\ProductsList;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,8 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
-        Livewire::component('products-list', ProductsList::class);
         //
         View::composer('*', function ($view) {
             // Skip for CLI or specific views

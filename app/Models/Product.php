@@ -14,12 +14,15 @@ class Product extends Model
     protected $guarded = [];
 
 
-    public static function search($search)
+    public function scopeSearch($query, $search)
     {
-        return empty($search) ? static::query()
-            : static::query()->where('name', 'like', '%' . $search . '%')
-                ->orWhere('description', 'like', '%' . $search . '%');
+        if (empty($search)) {
+            return $query;
+        }
+
+        return $query->where('name', 'like', '%' . $search . '%');
     }
+
 
     public function category()
     {

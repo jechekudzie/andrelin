@@ -21,7 +21,7 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  @livewireStyles
+ @stack('styles')
 </head>
 
 
@@ -133,6 +133,7 @@
                     <div class="module-contact module-contact-2"><a class="btn btn--primary" href="request-quote.html">
                             Request Quote <i class="energia-arrow-right"></i></a>
                     </div>
+
                     <div class="module module-cart">
                         <div class="module-icon module-icon-cart"><i class="fas fa-shopping-cart"></i><span
                                 class="title">shop cart</span>
@@ -328,7 +329,7 @@
 <script src="{{ asset('web/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ asset('web/assets/js/vendor.js') }}"></script>
 <script src="{{ asset('web/assets/js/functions.js') }}"></script>
-@livewireScripts
 
+@stack('scripts')
 </body>
 </html>
