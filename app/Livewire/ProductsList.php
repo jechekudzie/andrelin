@@ -14,12 +14,16 @@ class ProductsList extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap-custom';
 
+    protected $listeners = ['cartUpdated' => 'handleCartUpdate'];
+
     public $search = '';
 
     protected $queryString = [
         'search' => ['except' => ''],
         'page' => ['except' => 1]
     ];
+
+
     public $selectedCategory;
     public $selectedStatus;
 
@@ -40,6 +44,15 @@ class ProductsList extends Component
         $this->products = Product::all();
         $this->initializeQuantities($this->products);
     }
+
+    public function handleCartUpdate()
+    {
+        // Refresh cart from session in case it has changed
+        $this->cart = session()->get('cart', []);
+        $this->initializeQuantities(Product::all());
+    }
+
+
 
     public function openModal($productId)
     {
@@ -77,9 +90,12 @@ class ProductsList extends Component
         } else {
             // Add or update the product in the cart
             $this->cart[$productId] = [
+                'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->customer_price,
-                'quantity' => $this->quantities[$productId]
+                'dealer_price' => $product->dealer_price,
+                'quantity' => $this->quantities[$productId],
+                'image' => $product->image
             ];
         }
 
@@ -93,23 +109,22 @@ class ProductsList extends Component
             $this->cart[$productId]['quantity'] = max(1, intval($newQuantity));
             session()->put('cart', $this->cart);
         }
+
+        $this->dispatch('cartUpdated'); // Updated to use dispatch
     }
 
     public function render()
     {
-        Log::info("Current search term: " . $this->search);
+        $query = Product::query();
 
         if (strlen($this->search) >= 3) {
-            $products = Product::where('name', 'like', '%' . $this->search . '%')->paginate(12); // Using pagination
-        } else {
-            $products = Product::paginate(12); // Using pagination
+            $query->where('name', 'like', '%' . $this->search . '%');
         }
 
+        $products = $query->paginate(12);
         $categories = Category::all();
 
-        return view('livewire.products-list', compact('products','categories'));
+        return view('livewire.products-list', compact('products', 'categories'));
     }
-
-
 
 }

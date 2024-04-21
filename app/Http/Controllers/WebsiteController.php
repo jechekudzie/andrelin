@@ -17,6 +17,10 @@ class WebsiteController extends Controller
         return view('web.shop');
     }
 
+    //cartPage
+    public function cartPage(){
+        return view('web.cart_page');
+    }
 
     public function update(Request $request)
     {

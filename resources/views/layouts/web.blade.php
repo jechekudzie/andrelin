@@ -74,27 +74,12 @@
                 </div>
                 <div class="module module-cart">
                     <div class="module-icon module-icon-cart"><i class="fas fa-shopping-cart"></i><span class="title">shop cart</span>
-                        <label class="module-label">2</label>
+                        @livewire('cart-item-counter')
                     </div>
                     <div class="module-cart-warp">
-                        <ul class="cart-overview">
-                            <li><img src="assets/images/shop/thumb/1.png" alt="product"/>
-                                <div class="product-meta">
-                                    <h5>pentair controller</h5>
-                                    <p>$ 325.00</p>
-                                </div>
-                                <a class="cart-cancel" href="javascript:void(0)"><i class="fas fa-times"></i></a>
-                            </li>
-                            <li><img src="assets/images/shop/thumb/2.png" alt="product"/>
-                                <div class="product-meta">
-                                    <h5>solar royal</h5>
-                                    <p>$ 295.00</p>
-                                </div>
-                                <a class="cart-cancel" href="javascript:void(0)"><i class="fas fa-times"></i></a>
-                            </li>
-                        </ul>
-                        <span>total: <i class="total-price">$620.00</i></span>
-                        <div class="cart--control"><a class="btn" href="shop-cart.html">view cart</a></div>
+
+                        @livewire('shopping-cart')
+
                     </div>
                 </div>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -118,8 +103,6 @@
                     <li class="nav-item" id="contact" data-hover=""><a href=""><span>Projects</span></a></li>
                     <li class="nav-item" id="contact" data-hover=""><a href=""><span>News & Update</span></a></li>
                     <li class="nav-item" id="contact" data-hover=""><a href="{{url('/website/contact')}}"><span>Contact</span></a></li>
-
-
                 </ul>
                 <div class="module-holder">
                     <div class="module-call"><i class="icons-energiaphone-call"> </i>
@@ -137,27 +120,12 @@
                     <div class="module module-cart">
                         <div class="module-icon module-icon-cart"><i class="fas fa-shopping-cart"></i><span
                                 class="title">shop cart</span>
-                            <label class="module-label">2</label>
+                            @livewire('cart-item-counter')
                         </div>
                         <div class="module-cart-warp">
-                            <ul class="cart-overview">
-                                <li><img src="assets/images/shop/thumb/1.png" alt="product"/>
-                                    <div class="product-meta">
-                                        <h5>pentair controller</h5>
-                                        <p>$ 325.00</p>
-                                    </div>
-                                    <a class="cart-cancel" href="javascript:void(0)"><i class="fas fa-times"></i></a>
-                                </li>
-                                <li><img src="assets/images/shop/thumb/2.png" alt="product"/>
-                                    <div class="product-meta">
-                                        <h5>solar royal</h5>
-                                        <p>$ 295.00</p>
-                                    </div>
-                                    <a class="cart-cancel" href="javascript:void(0)"><i class="fas fa-times"></i></a>
-                                </li>
-                            </ul>
-                            <span>total: <i class="total-price">$620.00</i></span>
-                            <div class="cart--control"><a class="btn" href="shop-cart.html">view cart</a></div>
+
+                            @livewire('shopping-cart')
+
                         </div>
                     </div>
                 </div>

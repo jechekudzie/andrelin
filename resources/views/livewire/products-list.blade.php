@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <section class="shop" id="shop">
+    <section style="margin-top: -45px;" class="shop" id="shop">
         <div class="container-fluid">
             <div class="row">
                 @foreach ($products as $product)
