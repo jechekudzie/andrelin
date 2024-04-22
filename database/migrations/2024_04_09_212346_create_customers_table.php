@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->boolean('is_installer')->default(0);
+            $table->string('dealer_d')->nullable();
             $table->timestamps();
         });
     }

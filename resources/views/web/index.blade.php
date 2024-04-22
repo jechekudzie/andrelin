@@ -102,7 +102,7 @@
                 <div class="more-features more-features-2">
                     <p style="color: black;font-size: 16px;">Join the Renewable Revolution: Quality, Integrity, and
                         Innovation at the Heart of Every Projecr</p>
-                    <a class="btn btn--primary btn--white" href="#">Online Shop</a>
+                    <a class="btn btn--primary btn--white" href="{{url('website/shop')}}">Online Shop</a>
                 </div>
             </div>
             <!-- End .row-->
@@ -142,7 +142,7 @@
                         </p>
                         <div class="actions-holder">
                             <a class="btn btn--primary" href="">read more <i class="fa fa-caret-right"></i></a>
-                            <a style="color: black;" class="btn btn--white" href="">Shop With Us <i
+                            <a style="color: black;" class="btn btn--white" href="{{url('website/shop')}}">Shop With Us <i
                                     class="fa fa-shopping-cart"></i></a>
                         </div>
                     </div>
@@ -156,12 +156,15 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Andrelin<br/> Solar</a></h4>
-                            <p>The great thing about solar panels is that they do not require a lot of maintenance.
-                                However, still important to get them checked regularly</p>
+                            <h4><a href="">Andrelin<br/> Solar</a></h4>
+                            <p>Intro goes here Intro goes here Intro goes here Intro goes here Intro goes here Intro
+                                goes here Intro goes here Intro goes here Intro goes here Intro goes here Intro goes
+                                here Intro goes here Intro goes here Intro goes here
+                                Intro goes here
+                            </p>
                             <ul class="list-unstyled advantages-list">
                             </ul>
-                            <a class="btn btn--secondary" href="services-turbines.html">read more <i
+                            <a class="btn btn--secondary" href="">read more <i
                                     class="energia-arrow-right"></i></a>
                         </div>
                     </div>
@@ -171,12 +174,15 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="fas fa-tools"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Andrelin<br/>Hardware</a></h4>
-                            <p>Wind turbine is an expensive machine, we know very well how important it is that your
-                                wind turbine is always up whenever there is wind.</p>
+                            <h4><a href="">Andrelin<br/>Hardware</a></h4>
+                            <p>Intro goes here Intro goes here Intro goes here Intro goes here Intro goes here Intro
+                                goes here Intro goes here Intro goes here Intro goes here Intro goes here Intro goes
+                                here Intro goes here Intro goes here Intro goes here
+                                Intro goes here
+                            </p>
                             <ul class="list-unstyled advantages-list">
                             </ul>
-                            <a class="btn btn--secondary" href="services-turbines.html">read more <i
+                            <a class="btn btn--secondary" href="">read more <i
                                     class="energia-arrow-right"></i></a>
                         </div>
                     </div>
@@ -186,12 +192,15 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="fa fa-truck"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Andrelin<br/>Logistics</a></h4>
-                            <p>Hydropower systems are capital intensive assets can produce a significant income provided
-                                operated and maintained on high standard.</p>
+                            <h4><a href="">Andrelin<br/>Logistics</a></h4>
+                            < <p>Intro goes here Intro goes here Intro goes here Intro goes here Intro goes here Intro
+                                goes here Intro goes here Intro goes here Intro goes here Intro goes here Intro goes
+                                here Intro goes here Intro goes here Intro goes here
+                                Intro goes here
+                            </p>
                             <ul class="list-unstyled advantages-list">
                             </ul>
-                            <a class="btn btn--secondary" href="services-turbines.html">read more <i
+                            <a class="btn btn--secondary" href="">read more <i
                                     class="energia-arrow-right"></i></a>
                         </div>
                     </div>
@@ -533,7 +542,8 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">{{date('F m')}}</span><span class="year">{{date('Y')}}</span>
+                                <div class="entry-date"><span class="day">{{date('F m')}}</span><span
+                                        class="year">{{date('Y')}}</span>
                                 </div>
                                 <!-- End .entry-date		-->
                                 <div class="entry-author">
@@ -566,7 +576,8 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">{{date('F m')}}</span><span class="year">{{date('Y')}}</span>
+                                <div class="entry-date"><span class="day">{{date('F m')}}</span><span
+                                        class="year">{{date('Y')}}</span>
                                 </div>
                                 <!-- End .entry-date		-->
                                 <div class="entry-author">
@@ -599,7 +610,8 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">{{date('F m')}}</span><span class="year">{{date('Y')}}</span>
+                                <div class="entry-date"><span class="day">{{date('F m')}}</span><span
+                                        class="year">{{date('Y')}}</span>
                                 </div>
                                 <!-- End .entry-date		-->
                                 <div class="entry-author">

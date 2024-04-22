@@ -94,10 +94,12 @@
                     <li class="nav-item" id="contact" data-hover=""><a href="{{url('/website/shop')}}"><span>Online Shop </span> <i class="fas fa-shopping-cart"></i></a></li>
                     <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Services</span></a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="page-about.html"><span>about us</span></a></li>
-                            <li class="nav-item"><a href="page-how-works.html"><span>how it works</span></a></li>
-                            <li class="nav-item"><a href="page-team.html"><span>leadership team</span></a></li>
-                            <li class="nav-item"><a href="page-awards.html"><span>awards &amp; recognition</span></a>
+                            <li class="nav-item"><a href="#"><span>Site Assessment</span></a></li>
+                            <li class="nav-item"><a href="#"><span>Consultancy</span></a></li>
+                            <li class="nav-item"><a href="#"><span>Installations</span></a></li>
+                            <li class="nav-item"><a href="#"><span>System Design & Re-Work</span></a></li>
+                            <li class="nav-item"><a href="#"><span>Maintenance</span></a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item" id="contact" data-hover=""><a href=""><span>Projects</span></a></li>

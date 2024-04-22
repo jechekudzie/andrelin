@@ -23,20 +23,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $cart = \Illuminate\Support\Facades\Session::get('cart');
-    if(empty($cart)) {
-        return response()->json(['status' => 'empty', 'message' => 'Your cart is empty.']);
-    } else {
-        return response()->json(['status' => 'success', 'cart' => $cart]);
-    }
-
+    return view('web.index');
 });
 
 //organisation types
 Route::post('/cart/update', [\App\Http\Controllers\WebsiteController::class, 'update'])->name('cart.update');
 Route::get('/cart/data',[\App\Http\Controllers\WebsiteController::class, 'getCartData'])->name('cart.data');
-
-
 
 Route::get('/website/index', [\App\Http\Controllers\WebsiteController::class, 'index']);
 Route::get('/website/shop', [\App\Http\Controllers\WebsiteController::class, 'shop']);

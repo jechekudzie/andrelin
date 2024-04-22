@@ -54,7 +54,7 @@ class CartPage extends Component
                 $this->useDealerPrice = true;
                 $this->message = 'Coupon code applied successfully.';
                 $this->updateCartPrices();
-
+                $this->couponCode = '';
             } else {
                 $this->message = 'Invalid coupon code.';
                 $this->couponCode = '';
@@ -103,7 +103,6 @@ class CartPage extends Component
         $this->useDealerPrice = false;
 
     }
-
 
     public function saveCart()
     {
