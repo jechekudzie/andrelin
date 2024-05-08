@@ -31,6 +31,7 @@ Route::post('/cart/update', [\App\Http\Controllers\WebsiteController::class, 'up
 Route::get('/cart/data',[\App\Http\Controllers\WebsiteController::class, 'getCartData'])->name('cart.data');
 
 Route::get('/website/index', [\App\Http\Controllers\WebsiteController::class, 'index']);
+Route::get('/website/about', [\App\Http\Controllers\WebsiteController::class, 'about']);
 Route::get('/website/shop', [\App\Http\Controllers\WebsiteController::class, 'shop']);
 Route::get('/website/cart', [\App\Http\Controllers\WebsiteController::class, 'cart']);
 Route::get('/website/contact', [\App\Http\Controllers\WebsiteController::class, 'contact']);
@@ -154,8 +155,6 @@ Route::patch('admin/unit-measurements/{unitMeasurement}/update', [\App\Http\Cont
 Route::delete('admin/unit-measurements/{unitMeasurement}', [\App\Http\Controllers\UnitMeasurementController::class, 'destroy'])->name('unit-measurements.destroy');
 
 
-
-
 //suppliers routes
 Route::get('admin/suppliers', [\App\Http\Controllers\SupplierController::class, 'index'])->name('suppliers.index');
 Route::post('admin/suppliers/store', [\App\Http\Controllers\SupplierController::class, 'store'])->name('suppliers.store');
@@ -184,14 +183,20 @@ Route::get('admin/stock/{product}/track', [\App\Http\Controllers\StockTrackingCo
 Route::post('admin/stock/{product}/track/store', [\App\Http\Controllers\StockTrackingController::class, 'store'])->name('stock.track.store');
 Route::patch('admin/stock/{product}/track/update', [\App\Http\Controllers\StockTrackingController::class, 'update'])->name('stock.track.update');
 
-
-
 //customers
 Route::get('admin/customers', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customers.index');
 Route::post('admin/customers/store', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customers.store');
 Route::get('admin/customers/{customer}/edit', [\App\Http\Controllers\CustomerController::class, 'edit'])->name('customers.edit');
 Route::patch('admin/customers/{customer}/update', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customers.update');
 Route::delete('admin/customers/{customer}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customers.destroy');
+
+//admin services routes
+Route::get('admin/services', [\App\Http\Controllers\ServiceController::class, 'index'])->name('admin.services.index');
+Route::get('admin/services/create', [\App\Http\Controllers\ServiceController::class, 'create'])->name('admin.services.create');
+Route::post('admin/services/store', [\App\Http\Controllers\ServiceController::class, 'store'])->name('admin.services.store');
+Route::get('admin/services/{service}/edit', [\App\Http\Controllers\ServiceController::class, 'edit'])->name('admin.services.edit');
+Route::patch('admin/services/{service}/update', [\App\Http\Controllers\ServiceController::class, 'update'])->name('admin.services.update');
+Route::delete('admin/services/{service}', [\App\Http\Controllers\ServiceController::class, 'destroy'])->name('admin.services.destroy');
 
 
 Route::get('/dashboard', function () {

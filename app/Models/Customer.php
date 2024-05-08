@@ -28,4 +28,10 @@ class Customer extends Model
         return $this->hasMany(Sale::class);
     }
 
+    //service
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
 }

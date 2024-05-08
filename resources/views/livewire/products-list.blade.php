@@ -86,12 +86,16 @@
                                             <span>${{ $modalProduct->customer_price }}</span>
                                         </div>
                                         <div class="product-desc">
-                                            <p>{{ $modalProduct->description ?? 'No description available.' }}</p>
+                                            <p>{!! $modalProduct->description ?? 'No description available.' !!}  </p>
+                                            <p>@if($modalProduct->cost_per_unit == 1){{'This Product Is Charged per unit'}} @endif</p>
                                         </div>
                                         <div class="product-action">
-                                            <div class="product-quantity">
-                                                <input wire:model="quantities.{{ $modalProduct->id }}" wire:change="updateCartQuantity({{ $modalProduct->id }}, $event.target.value)" type="number" name="quantity" id="quantity-{{ $modalProduct->id }}" min="1"/>
 
+                                            <br/>
+                                            <br/>
+                                            <div class="product-quantity">
+                                                <input wire:model="quantities.{{ $modalProduct->id }}" wire:change="updateCartQuantity({{ $modalProduct->id }}, $event.target.value)"
+                                                       type="number" name="quantity" id="quantity-{{ $modalProduct->id }}" min="1"/>
                                             </div>
                                         </div>
                                     </div>

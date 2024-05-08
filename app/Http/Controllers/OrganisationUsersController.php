@@ -65,7 +65,7 @@ class OrganisationUsersController extends Controller
 
         $organisation = $organisation->refresh();
         //send email to user
-        Mail::to($user->email)->queue(new AccountCreatedMail($user->id, $organisation->id));
+        //Mail::to($user->email)->queue(new AccountCreatedMail($user->id, $organisation->id));
 
         return redirect()->route('admin.organisation-users.index', $organisation->slug)
             ->with('success', 'User created successfully.');

@@ -43,9 +43,13 @@ class ProductController extends Controller
             'discount_percentage' => 'nullable|numeric|max:100',
             'shops' => 'required|array',
             'shops.*' => 'exists:shops,id',
+            'description' => 'nullable|string',
+            'cost_per_unit' => 'nullable',
             'image' => 'nullable|image|max:2048', // Validate the image
             // add validation for other fields as needed
         ]);
+
+        //dd($request->all());
 
         $path = null;
 
@@ -90,6 +94,8 @@ class ProductController extends Controller
             'discount_percentage' => 'nullable|numeric|max:100',
             'shops' => 'required|array',
             'shops.*' => 'exists:shops,id',
+            'description' => 'nullable|string',
+            'cost_per_unit' => 'nullable|boolean',
             'image' => 'nullable|image|max:2048', // Validate the image
             // add validation for other fields as needed
         ]);

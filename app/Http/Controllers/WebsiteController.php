@@ -13,6 +13,11 @@ class WebsiteController extends Controller
         return view('web.index');
     }
 
+    public function about(){
+        return view('web.about');
+    }
+
+
     public function shop(){
         return view('web.shop');
     }

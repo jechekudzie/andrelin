@@ -16,8 +16,7 @@
         <div class="row g-4">
             <div class="col-12 col-xxl-12">
                 <div class="mb-8">
-                    <h2 class="mb-2">Andrelin Enterprises - Product Categories</h2>
-
+                    <h2 class="mb-2">Andrelin Enterprises - Product Catalogue</h2>
                 </div>
                 <div class="col-auto">
                     <a class="btn btn-primary px-5" href="{{route('product-categories.index')}}">
@@ -25,6 +24,8 @@
                         Refresh
                     </a>
                 </div>
+
+
 
                 <br/>
                 <div id="messageContainer"></div>
@@ -65,7 +66,7 @@
                                     <div class="row g-3 justify-content-between align-items-center">
                                         <div class="col-12 col-md">
                                             <h4 class="text-900 mb-0 card-title" data-anchor="data-anchor">Andrelin
-                                                Enterprises - Product Categories </h4>
+                                                Enterprises - Product Catalogue </h4>
                                         </div>
                                     </div>
                                 </div>

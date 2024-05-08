@@ -22,7 +22,6 @@
                                 aria-label="Close"></button>
                     </div>
                 @endforeach
-
             @endif
         @endif
         @if(session('success'))
@@ -57,7 +56,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="productImage" class="form-label"><h4 class="mb-3">Product Image</h4></label>
+                    <label for="productImage" class="form-label">
+                        <h4 class="mb-3">Product Image</h4>
+                    </label>
                     <input class="form-control mb-5" id="productImage" type="file" name="image">
                 </div>
 
@@ -98,11 +99,16 @@
                         </div>
                         <input type="hidden" name="on_discount" value="0">
 
-
                         <div class="mb-4" id="discount-field" style="display: none;">
                             <label for="discountPercentage" class="form-label">Discount Percentage (%)</label>
                             <input class="form-control mb-3" id="discount" type="number" step="0.01" name="discount_percentage" placeholder="Discount percentage...">
                         </div>
+
+                        <div class="mb-4 form-check">
+                            <input class="form-check-input" id="cost_per_unit" type="checkbox" name="cost_per_unit" value="1">
+                            <label class="form-check-label" for="">Charged Per Unit?</label>
+                        </div>
+                        {{--<input type="hidden" name="cost_per_unit" value="0">--}}
 
                         <div class="mb-4">
                             <h5 class="mb-2">Select Shops</h5>

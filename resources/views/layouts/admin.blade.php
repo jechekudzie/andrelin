@@ -110,8 +110,7 @@
                             <div class="parent-wrapper label-1">
                                 <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
                                     id="nv-home">
-                                    <li class="collapsed-nav-item-title d-none">Home - Andrelin Enterprises
-                                    </li>
+                                    <li class="collapsed-nav-item-title d-none">Home - Andrelin Enterprises</li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ Request::routeIs('admin.organisation-types*') ? 'active' : '' }}"
                                            href="{{route('admin.organisation-types.index')}}" data-bs-toggle=""
@@ -256,6 +255,16 @@
                                         <!-- more inner pages-->
                                     </li>
 
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Request::routeIs('admin.services.*') ? 'active' : '' }}" href="{{route('admin.services.index')}}" data-bs-toggle="" aria-expanded="false">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text">Andrelin Services</span>
+                                            </div>
+                                        </a>
+
+                                        <!-- more inner pages-->
+                                    </li>
+
                                     <li class="nav-item"><a class="nav-link" href="#"
                                                             data-bs-toggle="" aria-expanded="false">
                                             <div class="d-flex align-items-center"><span class="nav-link-text">Reports details</span>
@@ -338,7 +347,7 @@
                     <span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
                 <a class="navbar-brand me-1 me-sm-3" href="{{url('/admin')}}">
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center"><img src="{{asset('logo.png')}}" alt="phoenix"
+                        <div class="d-flex align-items-center"><img src="{{asset('logo.jpg')}}" alt="phoenix"
                                                                     width="57"/>
                             <p class="logo-text ms-2 d-none d-sm-block">ANDRELIN ENTERPRISES</p>
                         </div>

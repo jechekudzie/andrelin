@@ -51,6 +51,14 @@ class OrganisationsSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
+                'name' => 'Andrelin Electrical',
+                'organisation_type_id' => 2,
+                'organisation_id' => 1,
+                'slug' => 'andrelin-electrical',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
                 'name' => 'Avondale - Solar (Branch)',
                 'organisation_type_id' => 3,
                 'organisation_id' => 2,

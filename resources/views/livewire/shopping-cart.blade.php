@@ -3,7 +3,7 @@
     <ul class="cart-overview">
         @foreach($cartItems as $item)
             <li wire:key="cart-item-{{ $item['id'] }}">
-                <img src="{{ $item['image'] ?? 'website/assets/images/shop/thumb/default.png' }}" alt="{{ $item['name'] }}"/>
+                <img src="{{ asset($item['image']) ?? 'website/assets/images/shop/thumb/default.png' }}" alt="{{ $item['name'] }}"/>
                 <div class="product-meta">
                     <h5 style="color: black;">{{ $item['name'] }}</h5>
                     <p style="color: black;font-size: 14px;">Price: ${{ number_format($item['price'], 2) }}</p>
