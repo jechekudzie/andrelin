@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -22,10 +23,18 @@ class WebsiteController extends Controller
         return view('web.shop');
     }
 
+    //service
+    public function service(Service $service)
+    {
+
+        return view('web.service',compact('service'));
+    }
+
     //cartPage
     public function cartPage(){
         return view('web.cart_page');
     }
+
 
     public function update(Request $request)
     {

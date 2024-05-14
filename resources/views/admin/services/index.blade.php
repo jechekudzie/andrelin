@@ -74,6 +74,7 @@
                     <table id="buttons-datatables" class="table table-striped flex-wrap table-sm fs--1 mb-0">
                         <thead>
                         <tr>
+                            <th class="fs--2" scope="col" style="width:70px;">IMAGE</th>
                             <th class="fs--2" scope="col" style="width:70px;">SERVICE</th>
                             <th class="sort ps-4" scope="col" data-sort="product">DESCRIPTION</th>
                             <th class="pe-0 ps-4" scope="col">ACTION</th>

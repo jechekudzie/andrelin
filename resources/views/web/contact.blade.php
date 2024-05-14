@@ -48,7 +48,7 @@
         }
 
     </style>
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
         <div class="row">
 
             <div class="col-md-4 mb-3">
@@ -79,14 +79,13 @@
                         <li class="email">Linsey: <a href="tel:+263 774 189 886">+263
                                 774189886</a>
                         </li>
-                        <li style="height: 80px;margin-bottom: 20px">Address: Harare CBD, Leopold Takawira/Jason Moyo,
-                            Phoenix Mall Shop C12, Second Floor, Corner
-                            Building Next To NOCZIM / NOIC
+                        <li style="height: 80px;margin-bottom: 20px">Address: 100 Leopold Takawira Street Crn Jason Moyo
+                            Phoenix Mall corner Shop C12 Second Floor Stand No. 2180
                         </li>
                         <li>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d279.43311842472133!2d31.04392604385414!3d-17.823997400438795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a547c44acb4b%3A0x6c7ec4e7663c9cce!2sCorner%20takawira%20and%20Jason%20moyo!5e1!3m2!1sen!2szw!4v1715172043160!5m2!1sen!2szw"
-                                width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.1787476859936!2d31.042300275831607!3d-17.830253683134437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a56087470a4f%3A0x329929315c179eaf!2sAndrelin%20Enterprises!5e0!3m2!1sen!2szw!4v1715659139027!5m2!1sen!2szw"
+                                width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </li>
                     </ul>
@@ -121,14 +120,13 @@
                         </li>
 
                         <li style="height: 80px;margin-bottom: 20px">Address: 64A Connaught Rd, Harare, Zimbabwe. Near
-                            King
-                            George Rd/Connaught Rd Traffic Lights,
+                            King George Rd/Connaught Rd Traffic Lights,
                             next to Econet Wireless Transmitter/Tower.
                         </li>
                         <li>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d279.4756936184568!2d31.032929508722127!3d-17.796826475736435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a59d8504c329%3A0x343dd98d65ed9eb3!2s64A%20Connaught%20Rd%2C%20Harare!5e1!3m2!1sen!2szw!4v1715171791693!5m2!1sen!2szw"
-                                width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.8923573299776!2d31.03037077596389!3d-17.796755383161937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a5fa2b62af71%3A0x23e0c485a346e2a0!2sAndrelin%20Solar%20-%20Avondale!5e0!3m2!1sen!2szw!4v1715659562453!5m2!1sen!2szw"
+                                width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </li>
                     </ul>
@@ -169,7 +167,7 @@
                         <li>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4411.0928864748275!2d30.831598275878495!3d-20.07233168134839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ecce11c391c2a99%3A0x1a92a593397b49e1!2s56%20A4%2C%20Masvingo!5e1!3m2!1sen!2szw!4v1715171645479!5m2!1sen!2szw"
-                                width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </li>
                     </ul>

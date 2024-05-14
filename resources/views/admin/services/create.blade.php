@@ -34,7 +34,7 @@
             </div>
         @endif
     </div>
-    <form class="mb-9" action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
+    <form class="mb-9" action="{{ route('admin.services.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row g-3 flex-between-end mb-5">
             <div class="col-auto">
@@ -42,7 +42,7 @@
                 <h5 class="text-700 fw-semi-bold">Fill in the details below to add a new product</h5>
             </div>
             <div class="col-auto">
-                <a href="{{route('products.index')}}" class="btn btn-primary mb-2 mb-sm-0" type="submit"><i class="fa-solid fa-caret-left me-2"></i> Back</a>
+                <a href="{{route('admin.services.index')}}" class="btn btn-primary mb-2 mb-sm-0" type="submit"><i class="fa-solid fa-caret-left me-2"></i> Back</a>
                 <button class="btn btn-primary mb-2 mb-sm-0" type="submit"><i class="fa-solid fa-plus me-2"></i> Publish Service</button>
             </div>
 
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="productDescription" class="form-label"><h4 class="mb-3">Service Description</h4></label>
+                    <label for="description" class="form-label"><h4 class="mb-3">Service Description</h4></label>
                     <textarea class="tinymce" name="description" data-tinymce='{"height":"15rem","placeholder":"Write a description here..."}'></textarea>
                 </div>
             </div>

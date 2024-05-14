@@ -16,7 +16,7 @@
                                     <h1 class="slide-headline">sustainable &amp; reliable energy!</h1>
                                     <p class="slide-desc">Empowering Tomorrow: Affordable, Reliable Renewable Energy
                                         Solutions for Zimbabwe and Beyond</p>
-                                    <div class="slide-action"><a class="btn btn--primary" href="">
+                                    <div class="slide-action"><a class="btn btn--primary" href="{{route('website.service',\App\Models\Service::where('id',2)->first()->slug)}}">
                                             <span>our services</span><i class="energia-arrow-right"></i></a><a
                                             class="btn btn--white justify-content-center" href="{{url('/website/about')}}">more
                                             about us!</a></div>
@@ -41,7 +41,7 @@
                                         Beam.</p>
                                     <div class="slide-action"><a class="btn btn--primary" href="">
                                             <span>our services</span><i class="energia-arrow-right"></i></a><a
-                                            class="btn btn--white justify-content-center" href="">more
+                                            class="btn btn--white justify-content-center" href="{{url('/website/about')}}">more
                                             about us!</a></div>
                                 </div>
                                 <!-- End .slide-content -->
@@ -314,54 +314,6 @@
     Testimonials #2 Section
     ============================
     -->
-    <section class="testimonial testimonial-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-5">
-                    <div class="heading heading-9">
-                        <h2 class="heading-title">success stories</h2>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="img-hotspot img-hotspot-2">
-                        <div class="img-hotspot-wrap">
-                            <div class="img-hotspot-bg"><img src="assets/images/background/world-map.png" alt="image"/>
-                            </div>
-                            <div class="img-hotspot-pointers">
-                                <div class="img-hotspot-pointer" data-spot-x="12%" data-spot-y="25%"><img
-                                        src="assets/images/testimonial/thumbs/1.jpg" alt="pointer"/>
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="48%" data-spot-y="48%"><img
-                                        src="assets/images/testimonial/thumbs/2.jpg" alt="pointer"/>
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="79%" data-spot-y="15%"><img
-                                        src="assets/images/testimonial/thumbs/3.jpg" alt="pointer"/>
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="21%" data-spot-y="36%"><img
-                                        src="assets/images/testimonial/thumbs/4.jpg" alt="pointer"/>
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="70%" data-spot-y="39%"><img
-                                        src="assets/images/testimonial/thumbs/5.jpg" alt="pointer"/>
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End .row-->
-        </div>
-        <!-- End .container-->
-    </section>
     <div class="cta-holder">
         <div class="container">
             <div class="row">
@@ -576,7 +528,7 @@
     Blog #2 Section
     ============================
     -->
-    <section class="blog blog-2 blog-grid" id="blog-2">
+    {{--<section class="blog blog-2 blog-grid" id="blog-2">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
@@ -695,6 +647,6 @@
             <!-- End .row-->
         </div>
         <!-- End .container-->
-    </section>
+    </section>--}}
 
 @endsection

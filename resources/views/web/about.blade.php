@@ -239,12 +239,12 @@
         <!-- End .container-->
     </section>
 
-   {{-- <div class="container">
+  <div class="container">
         <div class="row">
             <!-- End .video-wrapper-->
             <div class="about-block-wrapper">
                 <div class="about-block">
-                    <div class="col-md-6 col-lg-6">
+                    <div class="col-md-8 col-lg-8">
                         <div class="heading heading-1">
                             <p class="heading-subtitle heading-subtitle-bg">Complete Commercial And Residential Solar
                                 Systems</p>
@@ -342,6 +342,6 @@
                 </div>
             </div>
         </div>
-    </div>--}}
+    </div>
 
 @endsection

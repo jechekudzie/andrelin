@@ -36,6 +36,7 @@ Route::get('/website/shop', [\App\Http\Controllers\WebsiteController::class, 'sh
 Route::get('/website/cart', [\App\Http\Controllers\WebsiteController::class, 'cart']);
 Route::get('/website/contact', [\App\Http\Controllers\WebsiteController::class, 'contact']);
 Route::get('/website/cart-page', [\App\Http\Controllers\WebsiteController::class, 'cartPage']);
+Route::get('/website/service/{service}', [\App\Http\Controllers\WebsiteController::class, 'service'])->name('website.service');
 
 
 
